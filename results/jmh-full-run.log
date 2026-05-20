@@ -1,0 +1,1026 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator
+> Task :jmhCompileGeneratedClasses UP-TO-DATE
+> Task :jmhJar
+
+> Task :jmh
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 0.00% complete, ETA 05:24:35
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 17241548.520 ops/s
+# Warmup Iteration   2: 16542209.659 ops/s
+# Warmup Iteration   3: 17098357.738 ops/s
+# Warmup Iteration   4: 17410735.957 ops/s
+# Warmup Iteration   5: 16825492.043 ops/s
+Iteration   1: 17133280.115 ops/s
+Iteration   2: 17200159.755 ops/s
+Iteration   3: 16754186.833 ops/s
+Iteration   4: 16906389.541 ops/s
+Iteration   5: 17000631.124 ops/s
+
+# Run progress: 0.51% complete, ETA 05:23:28
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 16503273.061 ops/s
+# Warmup Iteration   2: 16338848.983 ops/s
+# Warmup Iteration   3: 17291287.780 ops/s
+# Warmup Iteration   4: 17213194.044 ops/s
+# Warmup Iteration   5: 17016899.741 ops/s
+Iteration   1: 17426983.844 ops/s
+Iteration   2: 16566237.765 ops/s
+Iteration   3: 16833068.596 ops/s
+Iteration   4: 17135221.780 ops/s
+Iteration   5: 17369454.250 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  17032561.360 ±(99.9%) 412356.557 ops/s [Average]
+  (min, avg, max) = (16566237.765, 17032561.360, 17426983.844), stdev = 272748.331
+  CI (99.9%): [16620204.803, 17444917.918] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 1.03% complete, ETA 05:21:46
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13779590.037 ops/s
+# Warmup Iteration   2: 13867081.377 ops/s
+# Warmup Iteration   3: 13771530.856 ops/s
+# Warmup Iteration   4: 13928436.352 ops/s
+# Warmup Iteration   5: 13654413.869 ops/s
+Iteration   1: 13171836.638 ops/s
+Iteration   2: 13384879.156 ops/s
+Iteration   3: 13535813.385 ops/s
+Iteration   4: 13455187.058 ops/s
+Iteration   5: 13977378.611 ops/s
+
+# Run progress: 1.54% complete, ETA 05:20:07
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13672760.617 ops/s
+# Warmup Iteration   2: 13996843.330 ops/s
+# Warmup Iteration   3: 14131610.086 ops/s
+# Warmup Iteration   4: 14089844.679 ops/s
+# Warmup Iteration   5: 13841381.910 ops/s
+Iteration   1: 14115181.440 ops/s
+Iteration   2: 13875849.389 ops/s
+Iteration   3: 14268309.360 ops/s
+Iteration   4: 13910086.897 ops/s
+Iteration   5: 14005002.608 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  13769952.454 ±(99.9%) 541975.248 ops/s [Average]
+  (min, avg, max) = (13171836.638, 13769952.454, 14268309.360), stdev = 358483.069
+  CI (99.9%): [13227977.207, 14311927.702] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 2.05% complete, ETA 05:18:26
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12107767.752 ops/s
+# Warmup Iteration   2: 12004711.061 ops/s
+# Warmup Iteration   3: 12160906.689 ops/s
+# Warmup Iteration   4: 12298854.218 ops/s
+# Warmup Iteration   5: 12492938.616 ops/s
+Iteration   1: 12476281.760 ops/s
+Iteration   2: 12339496.333 ops/s
+Iteration   3: 12195020.212 ops/s
+Iteration   4: 12471980.814 ops/s
+Iteration   5: 12512954.950 ops/s
+
+# Run progress: 2.57% complete, ETA 05:16:46
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12657182.358 ops/s
+# Warmup Iteration   2: 12725728.721 ops/s
+# Warmup Iteration   3: 12653175.185 ops/s
+# Warmup Iteration   4: 12608111.018 ops/s
+# Warmup Iteration   5: 12800059.410 ops/s
+Iteration   1: 12687581.626 ops/s
+Iteration   2: 12592656.108 ops/s
+Iteration   3: 12608975.272 ops/s
+Iteration   4: 12503089.325 ops/s
+Iteration   5: 12659868.595 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  12504790.499 ±(99.9%) 226091.739 ops/s [Average]
+  (min, avg, max) = (12195020.212, 12504790.499, 12687581.626), stdev = 149545.687
+  CI (99.9%): [12278698.760, 12730882.239] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 3.08% complete, ETA 05:15:05
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 17014956.855 ops/s
+# Warmup Iteration   2: 16843417.993 ops/s
+# Warmup Iteration   3: 16459368.344 ops/s
+# Warmup Iteration   4: 16801803.339 ops/s
+# Warmup Iteration   5: 16991970.827 ops/s
+Iteration   1: 16901245.879 ops/s
+Iteration   2: 16669765.401 ops/s
+Iteration   3: 17060528.792 ops/s
+Iteration   4: 16910329.999 ops/s
+Iteration   5: 17033986.629 ops/s
+
+# Run progress: 3.59% complete, ETA 05:13:25
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 16783099.620 ops/s
+# Warmup Iteration   2: 16716266.554 ops/s
+# Warmup Iteration   3: 16611351.975 ops/s
+# Warmup Iteration   4: 16672071.781 ops/s
+# Warmup Iteration   5: 16679192.777 ops/s
+Iteration   1: 16518763.454 ops/s
+Iteration   2: 17069172.747 ops/s
+Iteration   3: 16637673.593 ops/s
+Iteration   4: 16765007.305 ops/s
+Iteration   5: 16756941.595 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  16832341.539 ±(99.9%) 290604.542 ops/s [Average]
+  (min, avg, max) = (16518763.454, 16832341.539, 17069172.747), stdev = 192216.911
+  CI (99.9%): [16541736.997, 17122946.081] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 4.11% complete, ETA 05:11:45
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13528985.499 ops/s
+# Warmup Iteration   2: 13380311.540 ops/s
+# Warmup Iteration   3: 13598435.771 ops/s
+# Warmup Iteration   4: 13500938.926 ops/s
+# Warmup Iteration   5: 13517839.275 ops/s
+Iteration   1: 13678633.676 ops/s
+Iteration   2: 13738036.110 ops/s
+Iteration   3: 13687021.257 ops/s
+Iteration   4: 13532977.111 ops/s
+Iteration   5: 13556736.146 ops/s
+
+# Run progress: 4.62% complete, ETA 05:10:05
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13445242.180 ops/s
+# Warmup Iteration   2: 13519578.018 ops/s
+# Warmup Iteration   3: 13657223.827 ops/s
+# Warmup Iteration   4: 13663112.312 ops/s
+# Warmup Iteration   5: 13652187.256 ops/s
+Iteration   1: 13538110.140 ops/s
+Iteration   2: 13556968.288 ops/s
+Iteration   3: 13372763.287 ops/s
+Iteration   4: 13442260.112 ops/s
+Iteration   5: 13513047.156 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  13561655.328 ±(99.9%) 170326.894 ops/s [Average]
+  (min, avg, max) = (13372763.287, 13561655.328, 13738036.110), stdev = 112660.694
+  CI (99.9%): [13391328.435, 13731982.222] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 5.13% complete, ETA 05:08:24
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12313755.529 ops/s
+# Warmup Iteration   2: 12097110.096 ops/s
+# Warmup Iteration   3: 12265781.243 ops/s
+# Warmup Iteration   4: 12408702.259 ops/s
+# Warmup Iteration   5: 12221147.575 ops/s
+Iteration   1: 12302302.177 ops/s
+Iteration   2: 12041641.111 ops/s
+Iteration   3: 12275690.683 ops/s
+Iteration   4: 12172573.135 ops/s
+Iteration   5: 12346493.024 ops/s
+
+# Run progress: 5.65% complete, ETA 05:06:44
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12370875.714 ops/s
+# Warmup Iteration   2: 12248207.722 ops/s
+# Warmup Iteration   3: 12174498.802 ops/s
+# Warmup Iteration   4: 12270502.093 ops/s
+# Warmup Iteration   5: 12235966.749 ops/s
+Iteration   1: 12280043.027 ops/s
+Iteration   2: 12130685.596 ops/s
+Iteration   3: 12349617.448 ops/s
+Iteration   4: 12285491.112 ops/s
+Iteration   5: 12469390.948 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  12265392.826 ±(99.9%) 184614.184 ops/s [Average]
+  (min, avg, max) = (12041641.111, 12265392.826, 12469390.948), stdev = 122110.852
+  CI (99.9%): [12080778.642, 12450007.010] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 6.16% complete, ETA 05:05:04
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13952412.011 ops/s
+# Warmup Iteration   2: 13560081.961 ops/s
+# Warmup Iteration   3: 13622001.761 ops/s
+# Warmup Iteration   4: 13436681.578 ops/s
+# Warmup Iteration   5: 13468908.566 ops/s
+Iteration   1: 13524229.828 ops/s
+Iteration   2: 13489889.589 ops/s
+Iteration   3: 13765340.894 ops/s
+Iteration   4: 13928917.427 ops/s
+Iteration   5: 13924607.478 ops/s
+
+# Run progress: 6.68% complete, ETA 05:03:23
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 13360012.108 ops/s
+# Warmup Iteration   2: 13137536.734 ops/s
+# Warmup Iteration   3: 13543941.751 ops/s
+# Warmup Iteration   4: 13239424.057 ops/s
+# Warmup Iteration   5: 13719419.949 ops/s
+Iteration   1: 13302276.882 ops/s
+Iteration   2: 13482778.961 ops/s
+Iteration   3: 13759429.990 ops/s
+Iteration   4: 13669185.632 ops/s
+Iteration   5: 13561176.553 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  13640783.323 ±(99.9%) 309107.592 ops/s [Average]
+  (min, avg, max) = (13302276.882, 13640783.323, 13928917.427), stdev = 204455.534
+  CI (99.9%): [13331675.731, 13949890.916] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 7.19% complete, ETA 05:01:43
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12768729.360 ops/s
+# Warmup Iteration   2: 12802174.319 ops/s
+# Warmup Iteration   3: 12879131.413 ops/s
+# Warmup Iteration   4: 12837387.911 ops/s
+# Warmup Iteration   5: 12505582.410 ops/s
+Iteration   1: 12437643.080 ops/s
+Iteration   2: 12748610.974 ops/s
+Iteration   3: 12508014.202 ops/s
+Iteration   4: 12608966.098 ops/s
+Iteration   5: 12578762.913 ops/s
+
+# Run progress: 7.70% complete, ETA 05:00:03
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12765087.890 ops/s
+# Warmup Iteration   2: 12621955.570 ops/s
+# Warmup Iteration   3: 12662703.299 ops/s
+# Warmup Iteration   4: 12754729.697 ops/s
+# Warmup Iteration   5: 12617939.397 ops/s
+Iteration   1: 12624603.215 ops/s
+Iteration   2: 12781997.617 ops/s
+Iteration   3: 12604566.779 ops/s
+Iteration   4: 12634010.657 ops/s
+Iteration   5: 12408306.392 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  12593548.193 ±(99.9%) 180773.573 ops/s [Average]
+  (min, avg, max) = (12408306.392, 12593548.193, 12781997.617), stdev = 119570.526
+  CI (99.9%): [12412774.620, 12774321.765] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr01
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 8.22% complete, ETA 04:58:22
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12216261.159 ops/s
+# Warmup Iteration   2: 12128052.508 ops/s
+# Warmup Iteration   3: 12155768.668 ops/s
+# Warmup Iteration   4: 12344249.619 ops/s
+# Warmup Iteration   5: 12267805.883 ops/s
+Iteration   1: 12371516.273 ops/s
+Iteration   2: 12277203.631 ops/s
+Iteration   3: 12244941.575 ops/s
+Iteration   4: 12238320.027 ops/s
+Iteration   5: 12320955.817 ops/s
+
+# Run progress: 8.73% complete, ETA 04:56:42
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12445293.601 ops/s
+# Warmup Iteration   2: 12258519.042 ops/s
+# Warmup Iteration   3: 12219630.716 ops/s
+# Warmup Iteration   4: 12251370.917 ops/s
+# Warmup Iteration   5: 12240383.836 ops/s
+Iteration   1: 12266140.975 ops/s
+Iteration   2: 12482414.106 ops/s
+Iteration   3: 12250129.891 ops/s
+Iteration   4: 12355433.382 ops/s
+Iteration   5: 12390639.213 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr01":
+  12319769.489 ±(99.9%) 120525.380 ops/s [Average]
+  (min, avg, max) = (12238320.027, 12319769.489, 12482414.106), stdev = 79720.076
+  CI (99.9%): [12199244.109, 12440294.868] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 9.24% complete, ETA 04:55:02
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 32360738.079 ops/s
+# Warmup Iteration   2: 32692273.089 ops/s
+# Warmup Iteration   3: 33548667.598 ops/s
+# Warmup Iteration   4: 33691388.699 ops/s
+# Warmup Iteration   5: 33385771.787 ops/s
+Iteration   1: 33554922.504 ops/s
+Iteration   2: 33512154.082 ops/s
+Iteration   3: 33436874.891 ops/s
+Iteration   4: 33526593.974 ops/s
+Iteration   5: 33637910.222 ops/s
+
+# Run progress: 9.76% complete, ETA 04:53:22
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 32668066.090 ops/s
+# Warmup Iteration   2: 32621190.444 ops/s
+# Warmup Iteration   3: 33747680.314 ops/s
+# Warmup Iteration   4: 33589954.998 ops/s
+# Warmup Iteration   5: 33641417.121 ops/s
+Iteration   1: 33676062.380 ops/s
+Iteration   2: 33387142.747 ops/s
+Iteration   3: 33720353.329 ops/s
+Iteration   4: 33677224.835 ops/s
+Iteration   5: 33723574.020 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  33585281.299 ±(99.9%) 180180.262 ops/s [Average]
+  (min, avg, max) = (33387142.747, 33585281.299, 33723574.020), stdev = 119178.087
+  CI (99.9%): [33405101.037, 33765461.560] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 10.27% complete, ETA 04:51:42
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 24845502.178 ops/s
+# Warmup Iteration   2: 25111988.666 ops/s
+# Warmup Iteration   3: 25222990.003 ops/s
+# Warmup Iteration   4: 25250837.568 ops/s
+# Warmup Iteration   5: 25304822.788 ops/s
+Iteration   1: 25202433.557 ops/s
+Iteration   2: 25743007.257 ops/s
+Iteration   3: 25959052.814 ops/s
+Iteration   4: 25897780.448 ops/s
+Iteration   5: 25925944.083 ops/s
+
+# Run progress: 10.78% complete, ETA 04:50:01
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 25544059.015 ops/s
+# Warmup Iteration   2: 25562387.402 ops/s
+# Warmup Iteration   3: 25658537.742 ops/s
+# Warmup Iteration   4: 25715210.047 ops/s
+# Warmup Iteration   5: 25583973.922 ops/s
+Iteration   1: 25666513.224 ops/s
+Iteration   2: 25707721.920 ops/s
+Iteration   3: 25555435.160 ops/s
+Iteration   4: 25703576.937 ops/s
+Iteration   5: 25587591.499 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  25694905.690 ±(99.9%) 334727.285 ops/s [Average]
+  (min, avg, max) = (25202433.557, 25694905.690, 25959052.814), stdev = 221401.374
+  CI (99.9%): [25360178.405, 26029632.974] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 11.30% complete, ETA 04:48:21
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 20511258.460 ops/s
+# Warmup Iteration   2: 20404483.765 ops/s
+# Warmup Iteration   3: 20543940.108 ops/s
+# Warmup Iteration   4: 20507157.518 ops/s
+# Warmup Iteration   5: 20640872.298 ops/s
+Iteration   1: 20639246.466 ops/s
+Iteration   2: 20385292.887 ops/s
+Iteration   3: 20587177.143 ops/s
+Iteration   4: 20683156.083 ops/s
+Iteration   5: 20546768.121 ops/s
+
+# Run progress: 11.81% complete, ETA 04:46:41
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 19953119.388 ops/s
+# Warmup Iteration   2: 20038822.270 ops/s
+# Warmup Iteration   3: 20736512.915 ops/s
+# Warmup Iteration   4: 20152125.569 ops/s
+# Warmup Iteration   5: 20084988.689 ops/s
+Iteration   1: 20145386.628 ops/s
+Iteration   2: 20094011.269 ops/s
+Iteration   3: 20129748.330 ops/s
+Iteration   4: 20025565.863 ops/s
+Iteration   5: 19999783.833 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  20323613.662 ±(99.9%) 411802.511 ops/s [Average]
+  (min, avg, max) = (19999783.833, 20323613.662, 20683156.083), stdev = 272381.864
+  CI (99.9%): [19911811.151, 20735416.173] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 12.32% complete, ETA 04:45:01
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 33208959.868 ops/s
+# Warmup Iteration   2: 33805200.817 ops/s
+# Warmup Iteration   3: 33691727.401 ops/s
+# Warmup Iteration   4: 33685508.838 ops/s
+# Warmup Iteration   5: 33765915.613 ops/s
+Iteration   1: 33696346.034 ops/s
+Iteration   2: 33744010.352 ops/s
+Iteration   3: 33578502.171 ops/s
+Iteration   4: 33806305.647 ops/s
+Iteration   5: 33612358.534 ops/s
+
+# Run progress: 12.84% complete, ETA 04:43:21
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 33994596.151 ops/s
+# Warmup Iteration   2: 33809097.134 ops/s
+# Warmup Iteration   3: 33857628.253 ops/s
+# Warmup Iteration   4: 33750498.562 ops/s
+# Warmup Iteration   5: 33829422.798 ops/s
+Iteration   1: 33715186.052 ops/s
+Iteration   2: 33775378.776 ops/s
+Iteration   3: 33793160.334 ops/s
+Iteration   4: 33861367.802 ops/s
+Iteration   5: 33839829.035 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  33742244.474 ±(99.9%) 140774.309 ops/s [Average]
+  (min, avg, max) = (33578502.171, 33742244.474, 33861367.802), stdev = 93113.489
+  CI (99.9%): [33601470.165, 33883018.783] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 13.35% complete, ETA 04:41:41
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 26952314.108 ops/s
+# Warmup Iteration   2: 27230366.528 ops/s
+# Warmup Iteration   3: 27204293.280 ops/s
+# Warmup Iteration   4: 27292808.482 ops/s
+# Warmup Iteration   5: 27193127.315 ops/s
+Iteration   1: 27174378.457 ops/s
+Iteration   2: 27178555.342 ops/s
+Iteration   3: 26950734.621 ops/s
+Iteration   4: 27234209.811 ops/s
+Iteration   5: 27190901.976 ops/s
+
+# Run progress: 13.86% complete, ETA 04:40:01
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 27626045.074 ops/s
+# Warmup Iteration   2: 27559237.211 ops/s
+# Warmup Iteration   3: 27137038.767 ops/s
+# Warmup Iteration   4: 26861165.609 ops/s
+# Warmup Iteration   5: 27143482.342 ops/s
+Iteration   1: 27021433.056 ops/s
+Iteration   2: 27219454.277 ops/s
+Iteration   3: 27264121.453 ops/s
+Iteration   4: 27177966.974 ops/s
+Iteration   5: 27061516.210 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  27147327.218 ±(99.9%) 153517.700 ops/s [Average]
+  (min, avg, max) = (26950734.621, 27147327.218, 27264121.453), stdev = 101542.453
+  CI (99.9%): [26993809.518, 27300844.918] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = JDK, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 14.38% complete, ETA 04:38:21
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 24363163.169 ops/s
+# Warmup Iteration   2: 24482455.946 ops/s
+# Warmup Iteration   3: 24719808.069 ops/s
+# Warmup Iteration   4: 24722150.519 ops/s
+# Warmup Iteration   5: 24693397.622 ops/s
+Iteration   1: 24697860.966 ops/s
+Iteration   2: 24592503.057 ops/s
+Iteration   3: 24570163.860 ops/s
+Iteration   4: 24698322.936 ops/s
+Iteration   5: 24691777.549 ops/s
+
+# Run progress: 14.89% complete, ETA 04:36:40
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 24908342.585 ops/s
+# Warmup Iteration   2: 24729432.561 ops/s
+# Warmup Iteration   3: 24779428.246 ops/s
+# Warmup Iteration   4: 24810665.917 ops/s
+# Warmup Iteration   5: 24762656.576 ops/s
+Iteration   1: 24734644.804 ops/s
+Iteration   2: 24632577.192 ops/s
+Iteration   3: 24591325.110 ops/s
+Iteration   4: 24820617.930 ops/s
+Iteration   5: 24738879.176 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  24676867.258 ±(99.9%) 120056.427 ops/s [Average]
+  (min, avg, max) = (24570163.860, 24676867.258, 24820617.930), stdev = 79409.893
+  CI (99.9%): [24556810.831, 24796923.685] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 15.40% complete, ETA 04:35:00
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 15884670.475 ops/s
+# Warmup Iteration   2: 16253611.609 ops/s
+# Warmup Iteration   3: 16158543.610 ops/s
+# Warmup Iteration   4: 16075102.352 ops/s
+# Warmup Iteration   5: 16303131.397 ops/s
+Iteration   1: 15926972.481 ops/s
+Iteration   2: 16329586.493 ops/s
+Iteration   3: 16064324.458 ops/s
+Iteration   4: 16340148.552 ops/s
+Iteration   5: 16117033.238 ops/s
+
+# Run progress: 15.92% complete, ETA 04:33:20
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 18371912.167 ops/s
+# Warmup Iteration   2: 18703877.469 ops/s
+# Warmup Iteration   3: 18313632.385 ops/s
+# Warmup Iteration   4: 18435014.548 ops/s
+# Warmup Iteration   5: 18361912.308 ops/s
+Iteration   1: 18525796.254 ops/s
+Iteration   2: 16322253.618 ops/s
+Iteration   3: 16361830.131 ops/s
+Iteration   4: 16299897.769 ops/s
+Iteration   5: 16142624.902 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  16443046.790 ±(99.9%) 1127917.925 ops/s [Average]
+  (min, avg, max) = (15926972.481, 16443046.790, 18525796.254), stdev = 746047.871
+  CI (99.9%): [15315128.864, 17570964.715] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.5)
+
+# Run progress: 16.43% complete, ETA 04:31:40
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 14555809.726 ops/s
+# Warmup Iteration   2: 14774060.902 ops/s
+# Warmup Iteration   3: 14868290.413 ops/s
+# Warmup Iteration   4: 14849506.531 ops/s
+# Warmup Iteration   5: 14799962.316 ops/s
+Iteration   1: 14862151.937 ops/s
+Iteration   2: 14795200.178 ops/s
+Iteration   3: 14797027.593 ops/s
+Iteration   4: 14750357.056 ops/s
+Iteration   5: 14769462.877 ops/s
+
+# Run progress: 16.94% complete, ETA 04:30:00
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 14435966.299 ops/s
+# Warmup Iteration   2: 14581753.004 ops/s
+# Warmup Iteration   3: 14673135.897 ops/s
+# Warmup Iteration   4: 14649023.162 ops/s
+# Warmup Iteration   5: 14693252.740 ops/s
+Iteration   1: 14668984.785 ops/s
+Iteration   2: 14703112.533 ops/s
+Iteration   3: 14634490.481 ops/s
+Iteration   4: 14700652.771 ops/s
+Iteration   5: 14611807.516 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  14729324.773 ±(99.9%) 119866.174 ops/s [Average]
+  (min, avg, max) = (14611807.516, 14729324.773, 14862151.937), stdev = 79284.052
+  CI (99.9%): [14609458.599, 14849190.947] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr02
+# Parameters: (impl = SYNC, rangeStr = 1048576, readShareStr = 0.2)
+
+# Run progress: 17.46% complete, ETA 04:28:19
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12824043.200 ops/s
+# Warmup Iteration   2: 13189267.483 ops/s
+# Warmup Iteration   3: 13300400.923 ops/s
+# Warmup Iteration   4: 13305774.961 ops/s
+# Warmup Iteration   5: 13277885.262 ops/s
+Iteration   1: 13236908.428 ops/s
+Iteration   2: 13324285.690 ops/s
+Iteration   3: 13265646.024 ops/s
+Iteration   4: 13313096.877 ops/s
+Iteration   5: 13263820.127 ops/s
+
+# Run progress: 17.97% complete, ETA 04:26:39
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 12928234.944 ops/s
+# Warmup Iteration   2: 13028466.452 ops/s
+# Warmup Iteration   3: 13189433.946 ops/s
+# Warmup Iteration   4: 13198600.189 ops/s
+# Warmup Iteration   5: 13143589.759 ops/s
+Iteration   1: 13233413.233 ops/s
+Iteration   2: 13194277.702 ops/s
+Iteration   3: 13149313.139 ops/s
+Iteration   4: 13203651.832 ops/s
+Iteration   5: 13063218.076 ops/s
+
+
+Result "benchmarks.MixedBenchmark.mixed_thr02":
+  13224763.113 ±(99.9%) 117423.445 ops/s [Average]
+  (min, avg, max) = (13063218.076, 13224763.113, 13324285.690), stdev = 77668.338
+  CI (99.9%): [13107339.668, 13342186.558] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.MixedBenchmark.mixed_thr04
+# Parameters: (impl = OWN, rangeStr = 1048576, readShareStr = 0.8)
+
+# Run progress: 18.49% complete, ETA 04:24:59
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 57312487.529 ops/s
+# Warmup Iteration   2: 56072516.087 ops/s
+# Warmup Iteration   3: 55262913.669 ops/s
+# Warmup Iteration   4: 59615842.708 ops/s
+# Warmup Iteration   5: 
