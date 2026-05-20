@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Parse JMH JSON output and emit plots under results/graphs/.
+Parse JMH JSON output and emit plots (default: results/full/graphs/).
 """
 from __future__ import annotations
 
@@ -20,8 +20,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_JSON = ROOT / "results" / "jmh-results.json"
-OUT_DIR = ROOT / "results" / "graphs"
+DEFAULT_JSON = ROOT / "results" / "full" / "jmh-results.json"
+LEGACY_JSON = ROOT / "results" / "jmh-results.json"
 
 # Obsolete filenames from older plotting logic (avoid stale graphs in results/graphs/)
 OBSOLETE_GRAPH_NAMES = frozenset(
@@ -30,6 +30,10 @@ OBSOLETE_GRAPH_NAMES = frozenset(
         "throughput_threads_ScalingBenchmark.png",
     },
 )
+
+# Chart label for ImplKind.UNSAFE / readUnsafe_thr01 (java.util.HashMap wrapper, not sun.misc.Unsafe)
+CHART_LABEL_PLAIN_HASHMAP = "HashMap"
+LINE_STYLE = "-"
 
 
 def load_rows(path: Path) -> list[dict]:
@@ -182,15 +186,21 @@ def plot_throughput_by_threads(rows: list[dict], out: Path) -> None:
             err = parse_error(pm)
             impl = (r.get("params") or {}).get("impl")
             if impl:
+                prev = series[impl].get(thr)
+                if prev is not None:
+                    print(
+                        f"plot_throughput_by_threads: overwriting {cls} {impl} thr={thr}",
+                        file=sys.stderr,
+                    )
                 series[impl][thr] = (float(score), err)
             elif cls == "ReadBenchmarkUnsafe":
                 if "readUnsafe" in b:
-                    series["UNSAFE"][thr] = (float(score), err)
+                    series[CHART_LABEL_PLAIN_HASHMAP][thr] = (float(score), err)
                 elif "readOwnSingle" in b:
                     series["OWN@1t-ref"][thr] = (float(score), err)
             elif cls == "WriteBenchmarkUnsafe":
                 if "writeUnsafe" in b:
-                    series["UNSAFE"][thr] = (float(score), err)
+                    series[CHART_LABEL_PLAIN_HASHMAP][thr] = (float(score), err)
                 elif "writeOwnSingle" in b:
                     series["OWN@1t-ref"][thr] = (float(score), err)
 
@@ -204,9 +214,9 @@ def plot_throughput_by_threads(rows: list[dict], out: Path) -> None:
             yerr = [pts[t][1] for t in xs]
             ye = _errorbar_yerr(yerr)
             if ye is not None:
-                plt.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=impl, linestyle="")
+                plt.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=impl, linestyle=LINE_STYLE)
             else:
-                plt.plot(xs, ys, marker="o", label=impl, linestyle="")
+                plt.plot(xs, ys, marker="o", label=impl, linestyle=LINE_STYLE)
         plt.xlabel("Threads")
         plt.ylabel("Throughput (ops/s)")
         plt.title(f"{cls}: throughput vs threads")
@@ -257,9 +267,9 @@ def plot_mixed_throughput_by_read_share(rows: list[dict], out: Path) -> None:
             yerr = [pts[t][1] for t in xs]
             ye = _errorbar_yerr(yerr)
             if ye is not None:
-                plt.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=impl, linestyle="")
+                plt.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=impl, linestyle=LINE_STYLE)
             else:
-                plt.plot(xs, ys, marker="o", label=impl, linestyle="")
+                plt.plot(xs, ys, marker="o", label=impl, linestyle=LINE_STYLE)
         plt.xlabel("Threads")
         plt.ylabel("Throughput (ops/s)")
         plt.title(f"MixedBenchmark readShare={rs}: throughput vs threads")
@@ -285,7 +295,7 @@ def plot_speedup_vs_sync(rows: list[dict], out: Path) -> None:
         return
 
     n = len(by_class)
-    fig, axes = plt.subplots(1, n, figsize=(5 * n, 5), squeeze=False)
+    fig, axes = plt.subplots(1, n, figsize=(6 * n, 6), squeeze=False)
     ax_flat = axes.flatten()
 
     for ax_idx, (cls, fr) in enumerate(sorted(by_class.items())):
@@ -304,12 +314,13 @@ def plot_speedup_vs_sync(rows: list[dict], out: Path) -> None:
             if sc is None:
                 continue
             params_ex = param_tuple_excluding_impl(r.get("params") or {})
-            key = (bench_method(b), thr, params_ex)
+            key = (thr, params_ex)
             grouped[key][impl] = (float(sc), parse_error(pm))
 
         line_data: dict[str, list[tuple[int, float, float | None]]] = defaultdict(list)
         for key, scores in grouped.items():
-            method, thr, params_ex = key
+            thr = key[0]
+            params_ex = key[1]
             sync = scores.get("SYNC")
             if not sync or sync[0] <= 0:
                 continue
@@ -321,9 +332,9 @@ def plot_speedup_vs_sync(rows: list[dict], out: Path) -> None:
                 ratio = s[0] / sync[0]
                 rerr = ratio_error(s[0], s[1], sync[0], sync[1])
                 if cls == "MixedBenchmark" and rs:
-                    label = f"{impl}.{method} rs={rs}"
+                    label = f"{impl} rs={rs}"
                 else:
-                    label = f"{impl}.{method}"
+                    label = impl
                 line_data[label].append((thr, ratio, rerr))
 
         for label, pts in sorted(line_data.items()):
@@ -333,19 +344,22 @@ def plot_speedup_vs_sync(rows: list[dict], out: Path) -> None:
             errs = [p[2] for p in pts]
             ye = _errorbar_yerr(errs)
             if ye is not None:
-                ax.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=label, linestyle="")
+                ax.errorbar(xs, ys, yerr=ye, marker="o", capsize=3, label=label, linestyle=LINE_STYLE)
             else:
-                ax.plot(xs, ys, marker="o", label=label, linestyle="")
+                ax.plot(xs, ys, marker="o", label=label, linestyle=LINE_STYLE)
         ax.axhline(1.0, color="gray", ls="--", linewidth=1)
         ax.set_xlabel("Threads")
         ax.set_ylabel("Throughput / SYNC")
         ax.set_yscale("log")
-        ax.set_title(f"{cls}: speedup vs synchronized HashMap (log y)")
+        ax.set_title(f"{cls}: speedup vs SYNC (log y)")
         ax.grid(True, ls="--", alpha=0.4)
-        ax.legend(fontsize=7)
+        if cls == "MixedBenchmark":
+            ax.legend(fontsize=7, bbox_to_anchor=(1.02, 1), loc="upper left")
+        else:
+            ax.legend(fontsize=8)
 
-    plt.tight_layout()
-    plt.savefig(out / "speedup_vs_sync_by_family.png", dpi=150)
+    plt.tight_layout(rect=(0, 0, 0.92, 1))
+    plt.savefig(out / "speedup_vs_sync_by_family.png", dpi=150, bbox_inches="tight")
     plt.close()
 
 
@@ -383,21 +397,21 @@ def _find_thrpt(
 
 
 def plot_unsafe_overhead(rows: list[dict], out: Path) -> None:
-    """Single-thread read and write: UNSAFE vs OWN vs JDK vs SYNC (ops/s) + overhead % vs UNSAFE."""
+    """1-thread: PlainHashMap (java.util.HashMap) vs concurrent maps; OWN/JDK/SYNC from Read/Write benchmarks."""
     label_colors = {
-        "UNSAFE": "#c44e52",
+        CHART_LABEL_PLAIN_HASHMAP: "#c44e52",
         "OWN": "#4c72b0",
         "JDK": "#55a868",
         "SYNC": "#8172b2",
     }
-    read_labels = ["UNSAFE", "OWN", "JDK", "SYNC"]
+    read_labels = [CHART_LABEL_PLAIN_HASHMAP, "OWN", "JDK", "SYNC"]
     read_vals = [
         _find_thrpt(rows, bench_cls="ReadBenchmarkUnsafe", method_suffix="readUnsafe_thr01", impl=None),
         _find_thrpt(rows, bench_cls="ReadBenchmark", method_suffix="read_thr01", impl="OWN"),
         _find_thrpt(rows, bench_cls="ReadBenchmark", method_suffix="read_thr01", impl="JDK"),
         _find_thrpt(rows, bench_cls="ReadBenchmark", method_suffix="read_thr01", impl="SYNC"),
     ]
-    write_labels = ["UNSAFE", "OWN", "JDK", "SYNC"]
+    write_labels = [CHART_LABEL_PLAIN_HASHMAP, "OWN", "JDK", "SYNC"]
     write_vals = [
         _find_thrpt(rows, bench_cls="WriteBenchmarkUnsafe", method_suffix="writeUnsafe_thr01", impl=None),
         _find_thrpt(rows, bench_cls="WriteBenchmark", method_suffix="write_thr01", impl="OWN"),
@@ -435,13 +449,13 @@ def plot_unsafe_overhead(rows: list[dict], out: Path) -> None:
         ax.set_title(title)
         ax.grid(True, axis="y", ls="--", alpha=0.4)
         try:
-            ui = plot_labels.index("UNSAFE")
+            ui = plot_labels.index(CHART_LABEL_PLAIN_HASHMAP)
         except ValueError:
             ui = None
         unsafe_score = plot_scores[ui] if ui is not None else None
         if unsafe_score and unsafe_score > 0:
             for i, (lab, sc) in enumerate(zip(plot_labels, plot_scores)):
-                if lab == "UNSAFE":
+                if lab == CHART_LABEL_PLAIN_HASHMAP:
                     continue
                 ov = (sc / unsafe_score - 1.0) * 100.0
                 ax.annotate(
@@ -455,7 +469,11 @@ def plot_unsafe_overhead(rows: list[dict], out: Path) -> None:
 
     draw_bars(axes[0], read_labels, read_vals, "Read @ 1 thread (thr01)")
     draw_bars(axes[1], write_labels, write_vals, "Write @ 1 thread (thr01)")
-    fig.suptitle("UNSAFE baseline vs concurrent maps (higher ops/s is better)")
+    fig.suptitle(
+        "Plain HashMap (single-thread) vs concurrent maps — "
+        "OWN/JDK/SYNC from Read/Write @State; HashMap from *Unsafe @State (see report)",
+        fontsize=10,
+    )
     plt.tight_layout()
     plt.savefig(out / "unsafe_overhead_1thread.png", dpi=150)
     plt.close()
@@ -548,6 +566,9 @@ def plot_latency_percentiles(rows: list[dict], out: Path) -> None:
         impl_p[key]["p99"] = float(p99) if p99 is not None else float(p50)
         impl_p[key]["p999"] = float(p999) if p999 is not None else float(p99 or p50)
         impl_p[key]["p100"] = float(p100) if p100 is not None else float(p999 or p50)
+        sc_mean = pm.get("score")
+        if sc_mean is not None:
+            impl_p[key]["mean"] = float(sc_mean)
 
     labels = sorted(impl_p.keys())
     if not labels:
@@ -565,12 +586,18 @@ def plot_latency_percentiles(rows: list[dict], out: Path) -> None:
     plt.bar(x + w, p999s, width=w, label="p99.9")
     plt.xticks(x, labels, rotation=20, ha="right")
     plt.ylabel("Latency (ns/op)")
-    plt.title("Read latency (sample time, log scale)")
+    plt.title("Read latency — random key per sample (not hot-key)")
     plt.yscale("log")
-    note = "  ".join(f"{lab}: p0={impl_p[lab]['p0']:.0f} p100={impl_p[lab]['p100']:.0f}" for lab in labels)
+    note_parts = []
+    for lab in labels:
+        m = impl_p[lab].get("mean")
+        extra = f" mean={m:.1f}" if m is not None else ""
+        note_parts.append(f"{lab}: p0={impl_p[lab]['p0']:.0f} p100={impl_p[lab]['p100']:.0f}{extra}")
+    note = "  ".join(note_parts)
     ax = plt.gca()
     ax.text(0.02, 0.98, note, transform=ax.transAxes, va="top", fontsize=7, family="monospace")
     plt.grid(True, axis="y", which="both", ls="--", alpha=0.4)
+    plt.legend(loc="upper right")
     plt.tight_layout()
     plt.savefig(out / "latency_percentiles.png", dpi=150)
     plt.close()
@@ -658,34 +685,46 @@ def assert_speedup_mixed_no_duplicate_x(rows: list[dict]) -> None:
         for impl in ("OWN", "JDK"):
             if impl not in scores:
                 continue
-            label = f"{impl}.{method} rs={rs}" if rs else f"{impl}.{method}"
+            label = f"{impl} rs={rs}" if rs else impl
             if thr in line_thr[label]:
                 raise RuntimeError(f"duplicate speedup x for {label} thr={thr}")
             line_thr[label].add(thr)
 
 
+def resolve_json_path() -> Path:
+    env = os.environ.get("JMH_RESULTS_JSON")
+    if env:
+        return Path(env)
+    if DEFAULT_JSON.is_file():
+        return DEFAULT_JSON
+    if LEGACY_JSON.is_file():
+        return LEGACY_JSON
+    return DEFAULT_JSON
+
+
 def main() -> int:
-    src = Path(os.environ.get("JMH_RESULTS_JSON", DEFAULT_JSON))
+    src = resolve_json_path()
+    out_dir = Path(os.environ.get("JMH_PLOTS_DIR", src.parent / "graphs"))
     rows = load_rows(src)
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
     if not rows:
         print("No data to plot.", file=sys.stderr)
         return 1
 
     validate_jmh_rows(rows)
-    remove_obsolete_graphs(OUT_DIR)
+    remove_obsolete_graphs(out_dir)
 
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", UserWarning)
-        plot_throughput_by_threads(rows, OUT_DIR)
-        plot_mixed_throughput_by_read_share(rows, OUT_DIR)
-        plot_speedup_vs_sync(rows, OUT_DIR)
+        plot_throughput_by_threads(rows, out_dir)
+        plot_mixed_throughput_by_read_share(rows, out_dir)
+        plot_speedup_vs_sync(rows, out_dir)
         assert_speedup_mixed_no_duplicate_x(rows)
-        plot_unsafe_overhead(rows, OUT_DIR)
-        plot_scaling_loglog(rows, OUT_DIR)
-        plot_latency_percentiles(rows, OUT_DIR)
-        plot_mixed_heatmap(rows, OUT_DIR)
-    print(f"Wrote plots under {OUT_DIR}")
+        plot_unsafe_overhead(rows, out_dir)
+        plot_scaling_loglog(rows, out_dir)
+        plot_latency_percentiles(rows, out_dir)
+        plot_mixed_heatmap(rows, out_dir)
+    print(f"Wrote plots under {out_dir} (from {src})")
     return 0
 
 

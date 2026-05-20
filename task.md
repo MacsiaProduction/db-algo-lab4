@@ -38,7 +38,7 @@ This file captures the user’s prompts, constraints, requirements, and the work
 | **Timeouts on shell** | e.g. `timeout 10m ./gradlew test`, `timeout 30s python3 scripts/plot_results.py`, `timeout 6h ./gradlew jmh ...` for long JMH. |
 | **No empty commits** | Only commit when the user asks (user rules). |
 | **Root cause before fixes** | Plot/report bugs were treated as grouping and documentation issues, not hashmap correctness. |
-| **Canonical data** | `results/jmh-results.json` is the source of truth for tables and plots; report must match it. |
+| **Canonical data** | `results/full/jmh-results.json` is the source of truth for tables and plots; report must match it. |
 
 ---
 
@@ -58,7 +58,7 @@ This file captures the user’s prompts, constraints, requirements, and the work
 
 ### Data / report
 
-- **`results/jmh-results.json`**: **118 rows** (not 112); **`-Xmx24g`**, **`forks: 2`**, **5×10 s** warmup/measurement for Read/Write/Mixed; Scaling uses **5×1 s** warmup, **5×2 s** measurement; includes scaling **`entriesStr` 100M and 300M**.
+- **`results/full/jmh-results.json`**: **118 rows** (not 112); **`-Xmx24g`**, **`forks: 2`**, **5×10 s** warmup/measurement for Read/Write/Mixed; Scaling uses **5×1 s** warmup, **5×2 s** measurement; includes scaling **`entriesStr` 100M and 300M**.
 - **`BENCHMARK_REPORT.md`** had been written for a different profile (8 g, 1 fork, 112 rows, scaling capped at 1e7) — numbers and metadata did not match JSON.
 - **High `scoreError`** on some cells (e.g. `ReadBenchmark.read_thr01` JDK/SYNC) due to large fork-to-fork spread — must be called out, not over-interpreted.
 
@@ -129,7 +129,7 @@ timeout 60s python3 scripts/plot_results.py
 
 | Path | Role |
 |------|------|
-| `results/jmh-results.json` | Canonical JMH export (118 rows in current repo) |
+| `results/full/jmh-results.json` | Canonical JMH export (118 rows in current repo) |
 | `results/graphs/*.png` | Generated plots |
 | `BENCHMARK_REPORT.md` | Human-readable analysis aligned with JSON |
 | `scripts/plot_results.py` | Plotting + validation warnings |

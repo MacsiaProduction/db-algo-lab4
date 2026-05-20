@@ -71,7 +71,9 @@ jmh {
     iterations.set(5)
     fork.set(2)
     resultFormat.set("JSON")
-    resultsFile.set(layout.projectDirectory.file("results/jmh-results.json").asFile)
+    val jmhResultsRel =
+        (project.findProperty("jmh.resultsFile") as String?) ?: "results/full/jmh-results.json"
+    resultsFile.set(layout.projectDirectory.file(jmhResultsRel).asFile)
     // Full scaling runs: `./gradlew jmh -Pjmh.heap=28g`
     val jmhHeap = (project.findProperty("jmh.heap") as String?) ?: "8g"
     jvmArgsAppend.set(
@@ -108,11 +110,39 @@ jmh {
         warmup.set("1s")
         timeOnIteration.set("2s")
     }
+    // Profile / flame: `./gradlew jmh -Pjmh.profile=true -Pjmh.includes=WriteBenchmark.write_thr16 -Pjmh.impl=OWN`
+    if (project.hasProperty("jmh.profile")) {
+        (project.findProperty("jmh.includes") as String?)?.let { includes.set(listOf(it)) }
+        (project.findProperty("jmh.impl") as String?)?.let { impl ->
+            val implValues = objects.listProperty(String::class.java)
+            implValues.set(listOf(impl))
+            benchmarkParameters.set(mapOf("impl" to implValues))
+        }
+        fork.set(1)
+        warmupIterations.set(1)
+        iterations.set(3)
+        warmup.set("5s")
+        timeOnIteration.set("15s")
+        (project.findProperty("jmh.flameFile") as String?)?.let { flameFile ->
+            val lib = (project.findProperty("jmh.asyncProfilerLib") as String?)
+                ?: "/opt/async-profiler/lib/libasyncProfiler.so"
+            jvmArgsAppend.set(
+                jvmArgsAppend.get() +
+                    listOf(
+                        "-agentpath:$lib=start,event=cpu,file=$flameFile",
+                        "-XX:+UnlockDiagnosticVMOptions",
+                        "-XX:+DebugNonSafepoints",
+                    ),
+            )
+        }
+    }
 }
 
 tasks.named("jmh") {
     doFirst {
-        layout.projectDirectory.dir("results").asFile.mkdirs()
+        val jmhResultsRel =
+            (project.findProperty("jmh.resultsFile") as String?) ?: "results/full/jmh-results.json"
+        layout.projectDirectory.file(jmhResultsRel).asFile.parentFile.mkdirs()
     }
 }
 

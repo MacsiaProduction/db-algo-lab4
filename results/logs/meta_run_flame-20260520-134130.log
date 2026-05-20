@@ -1,0 +1,219 @@
+============================================================
+  meta_run_flame (profiler-only): Ср 20 мая 2026 13:41:30 MSK
+  Lab4: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+  Lab3: /home/macsia/Projects/git/db-algo-lab3/docs/img/full/hnsw_build_flame.svg
+  Log:  /home/macsia/Projects/git/db-algo-lab4/results/logs/meta_run_flame-20260520-134130.log
+============================================================
+
+==================== Lab4: ./scripts/record_flame.sh =========
+WARN: kernel.perf_event_paranoid=2 (recommend 1 for CPU stacks):
+  sudo sysctl kernel.perf_event_paranoid=1 kernel.kptr_restrict=0
+==> async-profiler: /opt/async-profiler
+==> output dir: /home/macsia/Projects/git/db-algo-lab4/results/flame (isolated from results/full/)
+==> JMH + agent — WriteBenchmark.write_thr16 impl=OWN
+    html: /home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_OWN.html
+    json: /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_OWN.json (profile run only; not used for report plots)
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator UP-TO-DATE
+> Task :jmhCompileGeneratedClasses UP-TO-DATE
+> Task :jmhJar UP-TO-DATE
+
+> Task :jmh
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC -agentpath:/opt/async-profiler/lib/libasyncProfiler.so=start,event=cpu,file=/home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_OWN.html -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 3 iterations, 15 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.WriteBenchmark.write_thr16
+# Parameters: (impl = OWN, rangeStr = 1048576)
+
+# Run progress: 0.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+[WARN] Install JVM debug symbols to improve profile accuracy
+Profiling started
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 27551721.572 ops/s
+Iteration   1: 28880763.336 ops/s
+Iteration   2: 29074855.774 ops/s
+Iteration   3: 29065902.701 ops/s
+
+
+Result "benchmarks.WriteBenchmark.write_thr16":
+  29007173.937 ±(99.9%) 1998896.798 ops/s [Average]
+  (min, avg, max) = (28880763.336, 29007173.937, 29074855.774), stdev = 109566.278
+  CI (99.9%): [27008277.139, 31006070.735] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:50
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                   (impl)  (rangeStr)   Mode  Cnt         Score         Error  Units
+WriteBenchmark.write_thr16     OWN     1048576  thrpt    3  29007173.937 ± 1998896.798  ops/s
+
+Benchmark result is saved to /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_OWN.json
+
+[Incubating] Problems report is available at: file:///home/macsia/Projects/git/db-algo-lab4/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 54s
+8 actionable tasks: 1 executed, 7 up-to-date
+==> JMH + agent — WriteBenchmark.write_thr16 impl=JDK
+    html: /home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_JDK.html
+    json: /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_JDK.json (profile run only; not used for report plots)
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator UP-TO-DATE
+> Task :jmhCompileGeneratedClasses UP-TO-DATE
+> Task :jmhJar UP-TO-DATE
+
+> Task :jmh
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC -agentpath:/opt/async-profiler/lib/libasyncProfiler.so=start,event=cpu,file=/home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_JDK.html -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 3 iterations, 15 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.WriteBenchmark.write_thr16
+# Parameters: (impl = JDK, rangeStr = 1048576)
+
+# Run progress: 0.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+[WARN] Install JVM debug symbols to improve profile accuracy
+Profiling started
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/macsia/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 88591181.911 ops/s
+Iteration   1: 101414517.943 ops/s
+Iteration   2: 100685923.333 ops/s
+Iteration   3: 101735296.285 ops/s
+
+
+Result "benchmarks.WriteBenchmark.write_thr16":
+  101278579.187 ±(99.9%) 9810228.447 ops/s [Average]
+  (min, avg, max) = (100685923.333, 101278579.187, 101735296.285), stdev = 537731.724
+  CI (99.9%): [91468350.741, 111088807.634] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:50
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                   (impl)  (rangeStr)   Mode  Cnt          Score         Error  Units
+WriteBenchmark.write_thr16     JDK     1048576  thrpt    3  101278579.187 ± 9810228.447  ops/s
+
+Benchmark result is saved to /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_JDK.json
+
+[Incubating] Problems report is available at: file:///home/macsia/Projects/git/db-algo-lab4/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 53s
+8 actionable tasks: 1 executed, 7 up-to-date
+==> Lab4 flame artifacts: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+
+==================== Lab3: ./scripts/record_flame.sh =========
+==> Recording HNSW build flame (N_SWEEP=1000000) → docs/img/full/hnsw_build_flame.svg
+py-spy> Sampling process 100 times a second. Press Control-C to exit.
+
+add (n=1,000,000, batch=50,000):   0%|          | 0/20 [00:00<?, ?it/s]add (n=1,000,000, batch=50,000):   5%|▌         | 1/20 [00:03<01:15,  3.99s/it]add (n=1,000,000, batch=50,000):  10%|█         | 2/20 [00:12<01:58,  6.59s/it]add (n=1,000,000, batch=50,000):  15%|█▌        | 3/20 [00:23<02:25,  8.54s/it]add (n=1,000,000, batch=50,000):  20%|██        | 4/20 [00:36<02:43, 10.22s/it]add (n=1,000,000, batch=50,000):  25%|██▌       | 5/20 [00:48<02:43, 10.88s/it]add (n=1,000,000, batch=50,000):  30%|███       | 6/20 [01:01<02:44, 11.78s/it]add (n=1,000,000, batch=50,000):  35%|███▌      | 7/20 [01:17<02:49, 13.00s/it]add (n=1,000,000, batch=50,000):  40%|████      | 8/20 [01:31<02:42, 13.58s/it]add (n=1,000,000, batch=50,000):  45%|████▌     | 9/20 [01:47<02:36, 14.23s/it]add (n=1,000,000, batch=50,000):  50%|█████     | 10/20 [02:03<02:28, 14.84s/it]add (n=1,000,000, batch=50,000):  55%|█████▌    | 11/20 [02:20<02:19, 15.53s/it]add (n=1,000,000, batch=50,000):  60%|██████    | 12/20 [02:38<02:07, 16.00s/it]add (n=1,000,000, batch=50,000):  65%|██████▌   | 13/20 [02:55<01:54, 16.43s/it]add (n=1,000,000, batch=50,000):  70%|███████   | 14/20 [03:13<01:41, 16.93s/it]add (n=1,000,000, batch=50,000):  75%|███████▌  | 15/20 [03:31<01:26, 17.37s/it]add (n=1,000,000, batch=50,000):  80%|████████  | 16/20 [03:49<01:09, 17.47s/it]add (n=1,000,000, batch=50,000):  85%|████████▌ | 17/20 [04:11<00:56, 18.89s/it]add (n=1,000,000, batch=50,000):  90%|█████████ | 18/20 [04:28<00:36, 18.35s/it]add (n=1,000,000, batch=50,000):  95%|█████████▌| 19/20 [04:47<00:18, 18.45s/it]add (n=1,000,000, batch=50,000): 100%|██████████| 20/20 [05:06<00:00, 18.70s/it]                                                                                built 1000000
+
+py-spy> Stopped sampling because process exited
+py-spy> Wrote flamegraph data to 'docs/img/full/hnsw_build_flame.svg'. Samples: 30860 Errors: 0
+==> Wrote docs/img/full/hnsw_build_flame.svg
+
+============================================================
+  meta_run_flame finished: Ср 20 мая 2026 13:48:27 MSK
+  Lab4: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+  Lab3: /home/macsia/Projects/git/db-algo-lab3/docs/img/flame/hnsw_build_flame.svg
+============================================================

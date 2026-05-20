@@ -1,11 +1,12 @@
 package benchmarks
 
 import hashmap.ConcurrentHashMap
-import hashmap.UnsafeHashMap
+import hashmap.PlainHashMap
 import java.util.Collections
 import java.util.concurrent.ConcurrentHashMap as JdkCHM
 import java.util.concurrent.ThreadLocalRandom
 
+/** [UNSAFE] = single-threaded [PlainHashMap] (java.util.HashMap wrapper), not sun.misc.Unsafe. */
 enum class ImplKind { OWN, JDK, SYNC, UNSAFE }
 
 /** Minimal map surface used by JMH workloads (Int keys, Long values). */
@@ -64,7 +65,7 @@ fun newMap(kind: ImplKind): IntLongMap =
             }
         ImplKind.UNSAFE ->
             object : IntLongMap {
-                private val m = UnsafeHashMap<Int, Long>()
+                private val m = PlainHashMap<Int, Long>()
                 override fun putM(k: Int, v: Long) = m.put(k, v)
                 override fun getM(k: Int) = m.get(k)
                 override fun mergeM(k: Int, v: Long, merger: (Long, Long) -> Long): Long =

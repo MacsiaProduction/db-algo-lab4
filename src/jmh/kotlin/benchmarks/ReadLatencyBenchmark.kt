@@ -29,19 +29,17 @@ open class ReadLatencyBenchmark {
 
     private lateinit var map: IntLongMap
     private val range = 1_000_000
-    private var key: Int = 0
-
     @Setup
     fun setup() {
         map = newMap(ImplKind.valueOf(impl))
         for (i in 0 until range) {
             map.putM(i, i.toLong())
         }
-        key = ThreadLocalRandom.current().nextInt(range)
     }
 
     @Benchmark
     fun getSample(bh: Blackhole) {
-        bh.consume(map.getM(key))
+        val k = ThreadLocalRandom.current().nextKey(range)
+        bh.consume(map.getM(k))
     }
 }

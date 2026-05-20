@@ -1,8 +1,10 @@
 review done. Lab is solid overall but report has notable coverage gaps and a few methodology/script bugs.
 
+**Resolution (2026-05):** Items 1–8 addressed in `BENCHMARK_REPORT.md`, `scripts/plot_results.py`, `PlainHashMap` rename, `ReadLatencyBenchmark` random-key (JSON in `results/full/` reflects this). Item 9 (flame): run `./meta_run_flame.sh` + Lab3 `scripts/record_flame.sh` → `docs/img/full/hnsw_build_flame.svg`.
+
 ## **Numbers in report match JSON ✓**
 
-Spot-checked every table cell against `results/jmh-results.json` (118 rows). Read/Write/Mixed/Unsafe/Latency/Scaling values, JMH/JDK version, `-Xmx24g`, `forks=2`, iteration counts — all align.
+Tables in `BENCHMARK_REPORT.md` aligned with **`results/full/jmh-results.json`** (118 rows, May 2026 run). Legacy `results/jmh-results.json` may differ — use `results/full/` as canonical.
 
 ## **Unexplained results in** `BENCHMARK_REPORT.md`
 

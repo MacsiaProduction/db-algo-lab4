@@ -1,0 +1,69 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr16",
+        "mode" : "thrpt",
+        "threads" : 16,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-26-openjdk/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx24g",
+            "-Xms256m",
+            "-XX:+UseG1GC",
+            "-agentpath:/opt/async-profiler/lib/libasyncProfiler.so=start,event=cpu,file=/home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_JDK.html",
+            "-XX:+UnlockDiagnosticVMOptions",
+            "-XX:+DebugNonSafepoints"
+        ],
+        "jdkVersion" : "26.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "26.0.1",
+        "warmupIterations" : 1,
+        "warmupTime" : "5 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 3,
+        "measurementTime" : "15 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.0127857918711357E8,
+            "scoreError" : 9810228.446543202,
+            "scoreConfidence" : [
+                9.146835074057037E7,
+                1.1108880763365677E8
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.0068592333295706E8,
+                "50.0" : 1.0141451794309057E8,
+                "90.0" : 1.0173529628529306E8,
+                "95.0" : 1.0173529628529306E8,
+                "99.0" : 1.0173529628529306E8,
+                "99.9" : 1.0173529628529306E8,
+                "99.99" : 1.0173529628529306E8,
+                "99.999" : 1.0173529628529306E8,
+                "99.9999" : 1.0173529628529306E8,
+                "100.0" : 1.0173529628529306E8
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.0141451794309057E8,
+                    1.0068592333295706E8,
+                    1.0173529628529306E8
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

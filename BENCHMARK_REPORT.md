@@ -1,132 +1,177 @@
 # Lab 4 — benchmark report
 
-This document matches the **checked-in** JMH export [`results/jmh-results.json`](results/jmh-results.json) (**118** result rows). Plots were generated with `python3 scripts/plot_results.py` (the script prints warnings for duplicate keys and for `scoreError` > 25% of score).
+Aligned with [`results/full/jmh-results.json`](results/full/jmh-results.json) (**118** rows). Plots: `python3 scripts/plot_results.py`.
 
-## Machine and environment (from JSON)
+**Checked-in JSON profile:** `-Xmx24g`, **`forks: 2`**, OpenJDK **26.0.1**, Ryzen **7800X3D** (8C/16T). Main throughput benches: **5×10 s** warmup + **5×10 s** measurement; `ScalingBenchmark`: **5×1 s** warmup + **5×2 s** measurement.
 
-| Field | Value |
-| --- | --- |
-| Host OS | Linux 7.0.6 (CachyOS), x86_64 |
-| CPU | AMD Ryzen 7 7800X3D 8-Core Processor |
-| JMH | 1.37 |
-| JVM | OpenJDK 64-Bit Server VM 26.0.1 |
-| JDK | 26.0.1 |
-| Heap | `-Xmx24g` `-Xms256m` `-XX:+UseG1GC` (as recorded in each row’s `jvmArgs`) |
-| Throughput benchmarks (`ReadBenchmark`, `WriteBenchmark`, `MixedBenchmark`, unsafe thrpt) | **`forks`: 2**, **5** warmup × **10 s**, **5** measurement × **10 s** |
-| `ScalingBenchmark.scalingRead_thr08` | **`forks`: 2**, **5** warmup × **1 s**, **5** measurement × **2 s** |
-| `ReadLatencyBenchmark.getSample` | **`forks`: 2**, sample mode (see JSON for warmup/measurement times) |
+**Throughput semantics:** `threads > 1` ⇒ JMH reports **aggregate ops/s across all workers**, not per-thread.
 
-**Throughput semantics:** For `threads > 1`, JMH **throughput** is **aggregate ops/s over all worker threads** (not per-thread). Compare implementations at the same thread count.
+**Uncertainty:** `scoreError` is JMH **99.9% CI half-width** (with **2 forks**, includes fork-to-fork spread). Rankings at 1 thread for JDK/SYNC reads are noisy — use **≥5 forks** for tight comparisons.
 
-**Uncertainty:** `scoreError` is JMH’s **99.9% CI half-width** on the primary score (with **2 forks**, variance includes fork-to-fork effects). Some cells show **very wide** intervals (see below)—treat those headline numbers cautiously.
+---
 
-### High-variance cells (wide CI vs score)
+## Methodology caveats (read before interpreting charts)
 
-From the same JSON, relative `scoreError`/score exceeds **25%** for:
+### Plain `HashMap` baseline (not `sun.misc.Unsafe`)
 
-- `ReadBenchmark.read_thr01`, **`impl=JDK`** and **`impl=SYNC`** — large fork-to-fork spread; do not over-interpret single-number “winner” at 1 thread for JDK/SYNC here.
-- `ReadBenchmark.read_thr04` / `read_thr16`, **`impl=JDK`** — elevated CI vs other JDK read points.
+[`PlainHashMap`](src/main/kotlin/hashmap/PlainHashMap.kt) is a **single-threaded `java.util.HashMap` wrapper**. JMH still uses enum label `UNSAFE` / class names `*BenchmarkUnsafe`; charts label it **`HashMap`**.
 
-`scripts/plot_results.py` logs similar rows to stderr whenever you regenerate plots.
+### Boxing on the hot path
 
-## How to reproduce (with timeouts)
+[`IntLongMap`](src/jmh/kotlin/benchmarks/MapSupport.kt) uses `Int`/`Long` APIs → **boxed** keys/values on every `putM`/`getM`. At **1 thread**, writes cluster near **~15–16M ops/s** across OWN/JDK/SYNC partly because **`Long.valueOf` / `Integer.valueOf`** dominate.
 
-```bash
-timeout 15m ./gradlew test --no-daemon -q
-timeout 6h ./gradlew jmh --no-daemon -Pjmh.heap=24g   # full matrix; long
-timeout 60s python3 scripts/plot_results.py
-```
+### `ReadBenchmarkUnsafe` vs `ReadBenchmark` fixtures
 
-For a **shorter** matrix (still all benchmark classes from source, but shorter per-iteration times / 1 fork), use `-Pjmh.report=true` (see [`build.gradle.kts`](build.gradle.kts)). For a **smoke** subset, use `-Pjmh.light=true`.
+`ReadBenchmarkUnsafe` holds **both** `PlainHashMap` and OWN maps in one `@State` (larger working set). `readOwnSingle_thr01` (**72.6M**) ≠ `read_thr01` OWN (**90.3M**) for the same implementation. The **`unsafe_overhead_1thread.png`** bar chart compares HashMap from the Unsafe fixture to OWN/JDK/SYNC from the Read fixture — **not apples-to-apples** for OWN.
 
-## Charts (after `plot_results.py`)
+### Latency benchmark
 
-| Output | What it shows |
-| --- | --- |
-| `throughput_threads_ReadBenchmark.png`, `throughput_threads_WriteBenchmark.png` | Throughput vs threads; **Mixed** and **Scaling** are **not** folded in here (different parameter dimensions). |
-| `throughput_threads_MixedBenchmark_rs0.2.png` (and `rs0.5`, `rs0.8`) | Mixed workload **per read-share** so lines are not overwritten. |
-| `throughput_threads_*Unsafe*.png` | UNSAFE / single-thread reference maps. |
-| `speedup_vs_sync_by_family.png` | Read / Write / Mixed families; Mixed lines include **`rs=`** read-share in the legend; **log y** for ratio. |
-| `scaling_loglog.png` | Entries sweep (all `entriesStr` in JSON, including **100M** and **300M**) with **error bars** where `scoreError` is finite. |
-| `unsafe_overhead_1thread.png` | 1-thread UNSAFE vs OWN/JDK/SYNC. |
-| `latency_percentiles.png` | Sample-time latency percentiles (`p50` / `p99` / `p99.9`) + whisker note. |
-| `mixed_heatmap_*.png` | Read-share × threads heatmap per `impl`. |
+`ReadLatencyBenchmark.getSample` draws a **random key** each sample (matches checked-in JSON). Bars use **percentiles**; the table’s `score` column is the sample **mean** (mean ≈ median here — no multi-µs hot-key tail in this run).
 
-## Read throughput (`ReadBenchmark`, `rangeStr` = 1 048 576)
+### Mixed workload vs naive blend
 
-Aggregate ops/s; ± is JMH `scoreError`.
+`MixedBenchmark` (rs=0.8, 8t) JDK **136M** is far below a naive 80/20 blend of isolated read (**862M**) + write (**109M**) because each op pays **RNG + branch** and interleaved cache effects.
 
-| impl | 1 thread (`read_thr01`) | 8 threads (`read_thr08`) |
-| --- | --- | --- |
-| OWN | 90.3M ± 2.5M | 718.2M ± 1.9M |
-| JDK | 89.6M ± 38.8M | 862.1M ± 28.4M |
-| SYNC | 63.6M ± 25.6M | 13.4M ± 0.2M |
+### Scaling at 100M / 300M entries
 
-**Interpretation:** At 8 threads, OWN and JDK remain in the same ballpark; SYNC collapses (global lock). At 1 thread, JDK/SYNC show **very wide CIs** in this run—compare distributions / more forks if you need a tight ranking.
+Fills use boxed `Int`/`Long` nodes — **large heap** and **GC** at 100M–300M keys. Throughput there is as much a **memory-system** test as a lookup test.
 
-## UNSAFE baselines (`ReadBenchmarkUnsafe` / `WriteBenchmarkUnsafe`)
+### Flame graph
 
-| Benchmark | ops/s |
-| --- | --- |
-| `readUnsafe_thr01` | 86.6M ± 2.0M |
-| `readOwnSingle_thr01` | 72.6M ± 6.5M |
-| `writeUnsafe_thr01` | 19.5M ± 0.1M |
-| `writeOwnSingle_thr01` | 16.6M ± 0.3M |
+Not in the checked-in tree. Run `./meta_run_flame.sh` (Lab4 → `results/flame/`; Lab3 → `docs/img/full/hnsw_build_flame.svg`). Re-run Lab3 `05_comparison.ipynb` with `SKIP_SCALING_REBUILD=1` after flame to embed the SVG.
 
-See `unsafe_overhead_1thread.png` for grouped comparison with concurrent maps at 1 thread.
+---
 
-## Write throughput (`WriteBenchmark`, `rangeStr` = 1 048 576)
+## Read throughput (`ReadBenchmark`, range 1 048 576)
 
-| impl | 1 thread (`write_thr01`) | 8 threads (`write_thr08`) |
-| --- | --- | --- |
-| OWN | 15.6M ± 0.3M | 34.5M ± 0.9M |
-| JDK | 15.0M ± 0.1M | 108.8M ± 1.1M |
-| SYNC | 15.5M ± 0.1M | 9.4M ± 0.1M |
+Aggregate ops/s (M); full thread sweep:
 
-**Interpretation:** Single-thread writes are similar. At 8 threads JDK scales much better under concurrent writes; SYNC is limited by the synchronized wrapper.
+| threads | OWN | JDK | SYNC |
+| ---: | ---: | ---: | ---: |
+| 1 | 91.7 | 82.5 | 76.6 |
+| 2 | 189.7 | 179.7 | 45.2 |
+| 4 | 349.2 | 346.5 | 14.7 |
+| 8 | 723.4 | 839.4 | 13.7 |
+| 16 | 693.3 | 741.3 | 13.2 |
+| 32 | 709.8 | 817.6 | 13.4 |
 
-## Mixed workload (`MixedBenchmark`, `readShareStr` = **0.8**, **8 threads**)
+**Interpretation — scaling past 8 threads (OWN):** Throughput **rises to ~8 threads**, dips slightly at 16t (723M → 693M), then recovers at 32t (710M). JDK is flatter above 8t (839M @8t → 818M @32t). SYNC collapses after 2 threads (lock striping).
 
-| impl | ops/s |
-| --- | --- |
-| OWN | 109.9M ± 5.6M |
-| JDK | 136.2M ± 3.8M |
-| SYNC | 9.1M ± 0.2M |
+**1-thread JDK/SYNC** show **very wide CI** (rel. error ~43% / ~40%) from **bimodal forks** in `rawData` — do not over-rank.
 
-Other read shares and thread counts: per-share line charts (`throughput_threads_MixedBenchmark_rs*.png`) and heatmaps.
+**SYNC oddity:** Some cells show **2 threads > 1 thread** (e.g. mixed rs=0.8: 15.6M → 18.6M → 10.1M) — likely **biased-locking / JIT** transients with only **2 forks**; trust multi-thread trends more than single-step 1→2 jumps.
 
-## Read latency (`ReadLatencyBenchmark.getSample`, sample time)
+---
 
-| impl | ns/op | ± (`scoreError`) |
-| --- | ---: | ---: |
-| OWN | 24.59 | 0.45 |
-| JDK | 21.66 | 0.41 |
-| SYNC | 24.50 | 0.23 |
+## Write throughput (`WriteBenchmark`, range 1 048 576)
 
-Bars in `latency_percentiles.png` use **`scorePercentiles`** (`p50` / `p99` / `p99.9`), not the raw `score` column (which is a different aggregate in sample mode).
+| threads | OWN | JDK | SYNC |
+| ---: | ---: | ---: | ---: |
+| 1 | 15.9 | 15.1 | 15.5 |
+| 2 | 23.2 | 30.4 | 19.4 |
+| 4 | 32.0 | 57.1 | 10.7 |
+| 8 | 36.2 | 111.2 | 9.7 |
+| 16 | 29.8 | 107.8 | 9.5 |
+| 32 | 31.7 | 101.9 | 9.6 |
 
-## Scaling read (`ScalingBenchmark.scalingRead_thr08`, **8 threads**, aggregate ops/s)
+**Interpretation — OWN plateaus after ~8 threads:** OWN uses **16 segments** with **`ReentrantLock` per segment** → at most ~**16-way** write parallelism plus **hot segments** under random keys. JDK **CHM** uses **per-bin CAS/lock** without a low segment cap → **1t→8t** scales ~**7×** (15M → 109M) then flat. OWN only ~**2.2×** (15.6M → 34.5M) then flat ~30–31M.
+
+---
+
+## Mixed workload (`MixedBenchmark`, read share 0.8)
+
+| threads | OWN | JDK | SYNC |
+| ---: | ---: | ---: | ---: |
+| 1 | 20.6 | 19.1 | 15.8 |
+| 2 | 38.2 | 37.9 | 19.8 |
+| 4 | 70.1 | 72.6 | 11.2 |
+| 8 | 112.2 | 137.4 | 9.2 |
+| 16 | 92.9 | 137.0 | 9.3 |
+| 32 | 90.2 | 139.8 | 9.8 |
+
+OWN mixed at rs=0.8 dips after 8t (~112M → ~93M @16t) like read-heavy OWN. See per-share charts: `throughput_threads_MixedBenchmark_rs*.png`.
+
+---
+
+## Plain HashMap baselines (`ReadBenchmarkUnsafe` / `WriteBenchmarkUnsafe`)
+
+| Benchmark | ops/s | Note |
+| --- | ---: | --- |
+| `readUnsafe_thr01` (PlainHashMap) | 107.0M ± 3.1M | `*Unsafe` @State |
+| `readOwnSingle_thr01` (OWN only) | 68.3M ± 2.2M | same @State, second map — **lower** than `read_thr01` OWN |
+| `writeUnsafe_thr01` | 18.2M ± 2.1M | |
+| `writeOwnSingle_thr01` | 16.8M ± 0.1M | |
+
+---
+
+## Read latency (`ReadLatencyBenchmark.getSample`, random key)
+
+| impl | mean (`score`) | p50 | p99 | p99.9 |
+| --- | ---: | ---: | ---: | ---: |
+| OWN | 52.88 | 50 | 120 | 410 |
+| JDK | 49.23 | 40 | 120 | 390 |
+| SYNC | 55.45 | 50 | 130 | 420 |
+
+All three cluster near **~50 ns** median with p99.9 **~400 ns** — typical JMH/GC tails, not map-specific multi-µs stalls.
+
+---
+
+## Scaling read (`ScalingBenchmark.scalingRead_thr08`, 8 threads)
 
 | entries | OWN | JDK | SYNC |
-| --- | --- | --- | --- |
-| 1 000 | 1024M | 1224M | 13.4M |
-| 10 000 | 1113M | 1260M | 13.1M |
-| 100 000 | 766M | 919M | 13.2M |
-| 1 000 000 | 702M | 829M | 12.5M |
-| 10 000 000 | 214M | 223M | 11.1M |
-| 100 000 000 | 132M | 135M | 9.6M |
-| 300 000 000 | 120M | 107M | 9.2M |
+| --- | ---: | ---: | ---: |
+| 1 000 | 1048M | 1238M | 13.7M |
+| 10 000 | 1132M | 1232M | 13.7M |
+| 100 000 | 756M | 909M | 13.7M |
+| 1 000 000 | 636M | 812M | 13.2M |
+| 10 000 000 | 206M | 221M | 11.1M |
+| 100 000 000 | 145M | 139M | 9.6M |
+| 300 000 000 | 116M | 108M | 9.2M |
 
-Very small maps are cache- and metadata-dominated; treat **≥ 1e6** (or larger) as more representative of steady-state tree/table behavior. **`scaling_loglog.png`** includes error bars and the full entries sweep.
+**Tiny maps (1k–10k):** Metadata fits in cache; OWN can show **1k < 10k** (1024M vs 1113M) when **one segment** concentrates bucket-array traffic under 8 readers — not a contradiction with “cache-heavy”, just **layout + segment count**.
 
-## CPU / flame graph
+**High variance:** `OWN @ 1e7` and `@ 3e8` also show **wide CI** with only 2 forks.
 
-**Placeholder:** Capture async-profiler (or similar) on e.g. `WriteBenchmark.write_thr08` for OWN vs JDK and store under `results/flamegraph/`.
+---
 
-## jcstress
+## High-variance cells (2-fork caveat)
+
+Besides `read_thr01` JDK/SYNC, watch: `read_thr04`/`read_thr16` JDK, `read_thr32` JDK (~15% rel.), `ScalingBenchmark` OWN @ **1e7** (~13%) and **3e8** (~16%). **Recommendation:** re-run with **`fork ≥ 5`** for publication tables.
+
+---
+
+## Charts
+
+| File | Purpose |
+| --- | --- |
+| `throughput_threads_ReadBenchmark.png` | Read scaling 1–32 (lines + markers) |
+| `throughput_threads_MixedBenchmark_rs*.png` | Mixed per read-share |
+| `speedup_vs_sync_by_family.png` | OWN/JDK vs SYNC; Mixed legend `impl rs=…` |
+| `unsafe_overhead_1thread.png` | HashMap vs concurrent (fixture note in title) |
+| `scaling_loglog.png` | Entries 1k–300M with error bars |
+| `latency_percentiles.png` | p50/p99/p99.9 + legend |
+
+---
+
+## Reproduce
+
+**Unattended benchmarks (no profiler):**
 
 ```bash
-timeout 30m ./gradlew jcstress --no-daemon
+./meta_run_all.sh
 ```
 
-Resize visibility is guarded by `ResizeStressTest` and related tests (`jcstress { mode = "quick" }` in `build.gradle.kts`).
+**Flame graphs (separate, targeted runs):**
+
+```bash
+./meta_run_flame.sh
+```
+
+**Lab4 only (manual):**
+
+```bash
+./gradlew test --no-daemon -q
+./scripts/run_benchmarks.sh --no-daemon -Pjmh.heap=24g
+```
+
+**Finish Lab3 report after benchmarks:** `LAB_N_SWEEP=1281167 LAB_SCALING_FULL=1 ./scripts/finish_and_flame.sh` in `db-algo-lab3` (or `db-algo-lab4/scripts/finish_overnight.sh`).

@@ -19,6 +19,10 @@ import java.util.concurrent.TimeUnit
 /**
  * Measures read throughput after filling the map to [entries] keys.
  * Large values (100M, 300M) need `-Xmx28g` and sufficient RAM; reduce via `-Pjmh.includes` if OOM.
+ *
+ * Annotation warmup/measurement/fork values are defaults only; the Gradle `jmh { }` block
+ * (see `build.gradle.kts`) overrides them for full runs (typically 5×10s for main benches,
+ * 5×1s warmup / 5×2s measurement for scaling in the checked-in JSON).
  */
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)

@@ -1,0 +1,9 @@
+============================================================
+  meta_run_flame (profiler-only): Пн 18 мая 2026 23:37:53 MSK
+  Lab4: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+  Lab3: /home/macsia/Projects/git/db-algo-lab3/docs/img/flame/
+  Log:  /home/macsia/Projects/git/db-algo-lab4/results/logs/meta_run_flame-20260518-233753.log
+============================================================
+RUN_LAB4_FLAME=0 — skip Lab4
+
+SKIP_LAB3=1 — done

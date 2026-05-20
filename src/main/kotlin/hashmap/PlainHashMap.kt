@@ -1,10 +1,10 @@
 package hashmap
 
 /**
- * Non-thread-safe baseline: thin wrapper over [HashMap] with the same API surface as
- * [ConcurrentHashMap] for benchmarks (single-threaded only).
+ * Non-thread-safe baseline: thin wrapper over [java.util.HashMap] with the same API surface as
+ * [ConcurrentHashMap] for benchmarks (single-threaded only). Not related to `sun.misc.Unsafe`.
  */
-class UnsafeHashMap<K : Any, V : Any>(initialCapacity: Int = 16) {
+class PlainHashMap<K : Any, V : Any>(initialCapacity: Int = 16) {
     private val map = HashMap<K, V>(initialCapacity)
 
     fun put(key: K, value: V): V? = map.put(key, value)
