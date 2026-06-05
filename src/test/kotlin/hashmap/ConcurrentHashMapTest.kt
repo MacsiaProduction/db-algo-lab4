@@ -113,4 +113,72 @@ class ConcurrentHashMapTest {
         val h = ConcurrentHashMap.spread(0xdeadbeef.toInt())
         assertTrue(h >= 0)
     }
+
+    @Test
+    fun concurrentPutsAcrossSegmentGrowth() {
+        val m = ConcurrentHashMap<Int, Int>(
+            segmentCount = 1,
+            initialBucketsPerSegment = 2,
+            maxSegmentCount = 64,
+            segmentGrowWatermark = 64,
+        )
+        val threads = 8
+        val per = 20_000
+        val pool = Executors.newFixedThreadPool(threads)
+        val start = CountDownLatch(1)
+        val done = CountDownLatch(threads)
+        for (t in 0 until threads) {
+            pool.submit {
+                start.await()
+                val base = t * per
+                for (i in 0 until per) {
+                    m.put(base + i, i)
+                }
+                done.countDown()
+            }
+        }
+        start.countDown()
+        done.await()
+        pool.shutdown()
+        assertEquals((threads * per).toLong(), m.size())
+        assertTrue(m.segmentCount() > 1, "segments must have grown, got ${m.segmentCount()}")
+        for (k in 0 until threads * per) {
+            assertEquals(k % per, m.get(k))
+        }
+    }
+
+    @Test
+    fun growthPreservesEntriesUnderConcurrentReads() {
+        val m = ConcurrentHashMap<Int, Int>(
+            segmentCount = 2,
+            initialBucketsPerSegment = 2,
+            maxSegmentCount = 128,
+            segmentGrowWatermark = 128,
+        )
+        val n = 100_000
+        val readers = 4
+        val stop = CountDownLatch(1)
+        val pool = Executors.newFixedThreadPool(readers)
+        repeat(readers) {
+            pool.submit {
+                while (stop.count > 0) {
+                    val k = (Math.random() * n).toInt()
+                    val v = m.get(k)
+                    if (v != null) {
+                        require(v == k) { "corrupted read: key=$k value=$v" }
+                    }
+                }
+            }
+        }
+        for (i in 0 until n) {
+            m.put(i, i)
+        }
+        stop.countDown()
+        pool.shutdown()
+        assertEquals(n.toLong(), m.size())
+        assertTrue(m.segmentCount() > 2, "segments must have grown, got ${m.segmentCount()}")
+        for (k in 0 until n) {
+            assertEquals(k, m.get(k))
+        }
+    }
 }

@@ -22,7 +22,11 @@ fun newMap(kind: ImplKind): IntLongMap =
     when (kind) {
         ImplKind.OWN ->
             object : IntLongMap {
-                private val m = ConcurrentHashMap<Int, Long>()
+                // LAB_OWN_MAX_SEGMENTS=16 отключает рост сегментов (baseline для A/B); без env — дефолтный рост.
+                private val m =
+                    System.getenv("LAB_OWN_MAX_SEGMENTS")?.toIntOrNull()
+                        ?.let { ConcurrentHashMap<Int, Long>(maxSegmentCount = it) }
+                        ?: ConcurrentHashMap<Int, Long>()
                 override fun putM(k: Int, v: Long) = m.put(k, v)
                 override fun getM(k: Int) = m.get(k)
                 override fun mergeM(k: Int, v: Long, merger: (Long, Long) -> Long): Long =

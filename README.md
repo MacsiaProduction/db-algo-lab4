@@ -1,6 +1,6 @@
 # Lab 4 — Thread-safe closed-addressing hash table (Kotlin)
 
-Implements [`hashmap.ConcurrentHashMap`](src/main/kotlin/hashmap/ConcurrentHashMap.kt): striped segments (`ReentrantLock`), separate chaining, **lock-free reads** on hot paths (`AtomicReferenceArray` bucket heads + `@Volatile` `Node.value` / `Node.next`), per-segment resize, `merge`, `clear`, weakly consistent `iterator()`, and `size()` via per-segment `AtomicLong` counters (plan mentioned `LongAdder`; `AtomicLong` keeps `clear()` simple on older JDKs).
+Implements [`hashmap.ConcurrentHashMap`](src/main/kotlin/hashmap/ConcurrentHashMap.kt): striped segments (`ReentrantLock`), separate chaining, **lock-free reads** on hot paths (`AtomicReferenceArray` bucket heads + `@Volatile` `Node.value` / `Node.next`), per-segment resize, **dynamic fair growth of the segment count** under load (doubles the stripe count and fairly redistributes entries via a `@Volatile Table` snapshot; default watermark `16384` entries/segment, cap `1024`), `merge`, `clear`, weakly consistent `iterator()`, and `size()` via per-segment `AtomicLong` counters (plan mentioned `LongAdder`; `AtomicLong` keeps `clear()` simple on older JDKs).
 
 Baseline: [`hashmap.PlainHashMap`](src/main/kotlin/hashmap/PlainHashMap.kt) — thin **`java.util.HashMap`** wrapper, **single-thread only** (not `sun.misc.Unsafe`; JMH enum label remains `UNSAFE`).
 

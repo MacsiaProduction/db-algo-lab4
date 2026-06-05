@@ -1,0 +1,2899 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "OWN",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.4423165525853585E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.4202439986240463E7,
+                "50.0" : 1.4423165525853585E7,
+                "90.0" : 1.464389106546671E7,
+                "95.0" : 1.464389106546671E7,
+                "99.0" : 1.464389106546671E7,
+                "99.9" : 1.464389106546671E7,
+                "99.99" : 1.464389106546671E7,
+                "99.999" : 1.464389106546671E7,
+                "99.9999" : 1.464389106546671E7,
+                "100.0" : 1.464389106546671E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.4202439986240463E7,
+                    1.464389106546671E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.3302924683077544E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.3145615157166539E7,
+                "50.0" : 1.3302924683077544E7,
+                "90.0" : 1.3460234208988547E7,
+                "95.0" : 1.3460234208988547E7,
+                "99.0" : 1.3460234208988547E7,
+                "99.9" : 1.3460234208988547E7,
+                "99.99" : 1.3460234208988547E7,
+                "99.999" : 1.3460234208988547E7,
+                "99.9999" : 1.3460234208988547E7,
+                "100.0" : 1.3460234208988547E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.3145615157166539E7,
+                    1.3460234208988547E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "SYNC",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.4580101572804421E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.2555869685840357E7,
+                "50.0" : 1.4580101572804421E7,
+                "90.0" : 1.6604333459768487E7,
+                "95.0" : 1.6604333459768487E7,
+                "99.0" : 1.6604333459768487E7,
+                "99.9" : 1.6604333459768487E7,
+                "99.99" : 1.6604333459768487E7,
+                "99.999" : 1.6604333459768487E7,
+                "99.9999" : 1.6604333459768487E7,
+                "100.0" : 1.6604333459768487E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.2555869685840357E7,
+                    1.6604333459768487E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "OWN",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 7.736064077570364E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 7.351905728928468E7,
+                "50.0" : 7.736064077570364E7,
+                "90.0" : 8.120222426212259E7,
+                "95.0" : 8.120222426212259E7,
+                "99.0" : 8.120222426212259E7,
+                "99.9" : 8.120222426212259E7,
+                "99.99" : 8.120222426212259E7,
+                "99.999" : 8.120222426212259E7,
+                "99.9999" : 8.120222426212259E7,
+                "100.0" : 8.120222426212259E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    7.351905728928468E7,
+                    8.120222426212259E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 9.168613908442044E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 8.827453194909759E7,
+                "50.0" : 9.168613908442044E7,
+                "90.0" : 9.509774621974328E7,
+                "95.0" : 9.509774621974328E7,
+                "99.0" : 9.509774621974328E7,
+                "99.9" : 9.509774621974328E7,
+                "99.99" : 9.509774621974328E7,
+                "99.999" : 9.509774621974328E7,
+                "99.9999" : 9.509774621974328E7,
+                "100.0" : 9.509774621974328E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    8.827453194909759E7,
+                    9.509774621974328E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmark.read_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "SYNC",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.0068592145432074E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 8942095.088493576,
+                "50.0" : 1.0068592145432074E7,
+                "90.0" : 1.1195089202370573E7,
+                "95.0" : 1.1195089202370573E7,
+                "99.0" : 1.1195089202370573E7,
+                "99.9" : 1.1195089202370573E7,
+                "99.99" : 1.1195089202370573E7,
+                "99.999" : 1.1195089202370573E7,
+                "99.9999" : 1.1195089202370573E7,
+                "100.0" : 1.1195089202370573E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    8942095.088493576,
+                    1.1195089202370573E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmarkUnsafe.readOwnSingle_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 1.1801229146405373E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.1711223784262601E7,
+                "50.0" : 1.1801229146405373E7,
+                "90.0" : 1.1891234508548144E7,
+                "95.0" : 1.1891234508548144E7,
+                "99.0" : 1.1891234508548144E7,
+                "99.9" : 1.1891234508548144E7,
+                "99.99" : 1.1891234508548144E7,
+                "99.999" : 1.1891234508548144E7,
+                "99.9999" : 1.1891234508548144E7,
+                "100.0" : 1.1891234508548144E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.1891234508548144E7,
+                    1.1711223784262601E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadBenchmarkUnsafe.readUnsafe_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 2.087560836191866E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.7803142107752897E7,
+                "50.0" : 2.087560836191866E7,
+                "90.0" : 2.3948074616084427E7,
+                "95.0" : 2.3948074616084427E7,
+                "99.0" : 2.3948074616084427E7,
+                "99.9" : 2.3948074616084427E7,
+                "99.99" : 2.3948074616084427E7,
+                "99.999" : 2.3948074616084427E7,
+                "99.9999" : 2.3948074616084427E7,
+                "100.0" : 2.3948074616084427E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.7803142107752897E7,
+                    2.3948074616084427E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "OWN",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 5089090.232121428,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4951050.875609284,
+                "50.0" : 5089090.232121428,
+                "90.0" : 5227129.588633571,
+                "95.0" : 5227129.588633571,
+                "99.0" : 5227129.588633571,
+                "99.9" : 5227129.588633571,
+                "99.99" : 5227129.588633571,
+                "99.999" : 5227129.588633571,
+                "99.9999" : 5227129.588633571,
+                "100.0" : 5227129.588633571
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4951050.875609284,
+                    5227129.588633571
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 6699754.809307257,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 6431839.508623142,
+                "50.0" : 6699754.809307257,
+                "90.0" : 6967670.109991371,
+                "95.0" : 6967670.109991371,
+                "99.0" : 6967670.109991371,
+                "99.9" : 6967670.109991371,
+                "99.99" : 6967670.109991371,
+                "99.999" : 6967670.109991371,
+                "99.9999" : 6967670.109991371,
+                "100.0" : 6967670.109991371
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    6431839.508623142,
+                    6967670.109991371
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "SYNC",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 5356349.47949256,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5326301.608842343,
+                "50.0" : 5356349.47949256,
+                "90.0" : 5386397.350142776,
+                "95.0" : 5386397.350142776,
+                "99.0" : 5386397.350142776,
+                "99.9" : 5386397.350142776,
+                "99.99" : 5386397.350142776,
+                "99.999" : 5386397.350142776,
+                "99.9999" : 5386397.350142776,
+                "100.0" : 5386397.350142776
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    5326301.608842343,
+                    5386397.350142776
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "OWN",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 7539702.787738539,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 7496953.951529252,
+                "50.0" : 7539702.787738539,
+                "90.0" : 7582451.623947826,
+                "95.0" : 7582451.623947826,
+                "99.0" : 7582451.623947826,
+                "99.9" : 7582451.623947826,
+                "99.99" : 7582451.623947826,
+                "99.999" : 7582451.623947826,
+                "99.9999" : 7582451.623947826,
+                "100.0" : 7582451.623947826
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    7496953.951529252,
+                    7582451.623947826
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 3.678891103219345E7,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3.223264410040114E7,
+                "50.0" : 3.678891103219345E7,
+                "90.0" : 4.134517796398576E7,
+                "95.0" : 4.134517796398576E7,
+                "99.0" : 4.134517796398576E7,
+                "99.9" : 4.134517796398576E7,
+                "99.99" : 4.134517796398576E7,
+                "99.999" : 4.134517796398576E7,
+                "99.9999" : 4.134517796398576E7,
+                "100.0" : 4.134517796398576E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3.223264410040114E7,
+                    4.134517796398576E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmark.write_thr08",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "SYNC",
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 6402755.752876882,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5837212.942948471,
+                "50.0" : 6402755.752876882,
+                "90.0" : 6968298.562805294,
+                "95.0" : 6968298.562805294,
+                "99.0" : 6968298.562805294,
+                "99.9" : 6968298.562805294,
+                "99.99" : 6968298.562805294,
+                "99.999" : 6968298.562805294,
+                "99.9999" : 6968298.562805294,
+                "100.0" : 6968298.562805294
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    5837212.942948471,
+                    6968298.562805294
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmarkUnsafe.writeOwnSingle_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 5074238.44373173,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4989438.489797968,
+                "50.0" : 5074238.44373173,
+                "90.0" : 5159038.397665491,
+                "95.0" : 5159038.397665491,
+                "99.0" : 5159038.397665491,
+                "99.9" : 5159038.397665491,
+                "99.99" : 5159038.397665491,
+                "99.999" : 5159038.397665491,
+                "99.9999" : 5159038.397665491,
+                "100.0" : 5159038.397665491
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4989438.489797968,
+                    5159038.397665491
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.WriteBenchmarkUnsafe.writeUnsafe_thr01",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "rangeStr" : "1048576"
+        },
+        "primaryMetric" : {
+            "score" : 7422942.616953822,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 7354769.688304476,
+                "50.0" : 7422942.616953822,
+                "90.0" : 7491115.545603168,
+                "95.0" : 7491115.545603168,
+                "99.0" : 7491115.545603168,
+                "99.9" : 7491115.545603168,
+                "99.99" : 7491115.545603168,
+                "99.999" : 7491115.545603168,
+                "99.9999" : 7491115.545603168,
+                "100.0" : 7491115.545603168
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    7491115.545603168,
+                    7354769.688304476
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadLatencyBenchmark.getSample",
+        "mode" : "sample",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "OWN"
+        },
+        "primaryMetric" : {
+            "score" : 222.71596294240703,
+            "scoreError" : 19.813406410659876,
+            "scoreConfidence" : [
+                202.90255653174717,
+                242.5293693530669
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0,
+                "50.0" : 167.0,
+                "90.0" : 291.0,
+                "95.0" : 292.0,
+                "99.0" : 417.0,
+                "99.9" : 16380.239999999874,
+                "99.99" : 43140.54399997648,
+                "99.999" : 174848.0,
+                "99.9999" : 174848.0,
+                "100.0" : 174848.0
+            },
+            "scoreUnit" : "ns/op",
+            "rawDataHistogram" : [
+                [
+                    [
+                        [ 0.0, 2708 ],
+                        [ 41.0, 1507 ],
+                        [ 42.0, 2962 ],
+                        [ 83.0, 2421 ],
+                        [ 84.0, 1216 ],
+                        [ 125.0, 4249 ],
+                        [ 166.0, 1193 ],
+                        [ 167.0, 2397 ],
+                        [ 208.0, 1554 ],
+                        [ 209.0, 770 ],
+                        [ 250.0, 1310 ],
+                        [ 291.0, 185 ],
+                        [ 292.0, 360 ],
+                        [ 333.0, 115 ],
+                        [ 334.0, 70 ],
+                        [ 375.0, 61 ],
+                        [ 416.0, 12 ],
+                        [ 417.0, 14 ],
+                        [ 458.0, 8 ],
+                        [ 459.0, 4 ],
+                        [ 500.0, 3 ],
+                        [ 541.0, 1 ],
+                        [ 542.0, 2 ],
+                        [ 583.0, 1 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 2 ],
+                        [ 666.0, 1 ],
+                        [ 667.0, 1 ],
+                        [ 708.0, 1 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 1 ],
+                        [ 791.0, 1 ],
+                        [ 792.0, 1 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 916.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 1 ],
+                        [ 1040.0, 1 ],
+                        [ 1042.0, 1 ],
+                        [ 1082.0, 1 ],
+                        [ 1084.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1250.0, 1 ],
+                        [ 1290.0, 1 ],
+                        [ 1292.0, 1 ],
+                        [ 1332.0, 1 ],
+                        [ 1374.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1458.0, 1 ],
+                        [ 1500.0, 1 ],
+                        [ 1540.0, 1 ],
+                        [ 1542.0, 1 ],
+                        [ 1582.0, 1 ],
+                        [ 1624.0, 1 ],
+                        [ 1666.0, 1 ],
+                        [ 1708.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1792.0, 1 ],
+                        [ 1874.0, 1 ],
+                        [ 1916.0, 1 ],
+                        [ 1958.0, 2 ],
+                        [ 2040.0, 1 ],
+                        [ 2042.0, 1 ],
+                        [ 2084.0, 1 ],
+                        [ 2124.0, 1 ],
+                        [ 2248.0, 1 ],
+                        [ 2292.0, 1 ],
+                        [ 2332.0, 1 ],
+                        [ 2372.0, 1 ],
+                        [ 2416.0, 1 ],
+                        [ 2456.0, 1 ],
+                        [ 2500.0, 1 ],
+                        [ 2540.0, 1 ],
+                        [ 2584.0, 1 ],
+                        [ 2624.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2708.0, 1 ],
+                        [ 2748.0, 1 ],
+                        [ 2788.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2872.0, 1 ],
+                        [ 2916.0, 2 ],
+                        [ 2956.0, 1 ],
+                        [ 3000.0, 1 ],
+                        [ 3040.0, 1 ],
+                        [ 3080.0, 1 ],
+                        [ 3084.0, 1 ],
+                        [ 3124.0, 1 ],
+                        [ 3164.0, 1 ],
+                        [ 3208.0, 1 ],
+                        [ 3248.0, 1 ],
+                        [ 3288.0, 1 ],
+                        [ 3332.0, 1 ],
+                        [ 3372.0, 1 ],
+                        [ 3416.0, 1 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 1 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3708.0, 1 ],
+                        [ 3748.0, 1 ],
+                        [ 3792.0, 1 ],
+                        [ 3832.0, 1 ],
+                        [ 3872.0, 2 ],
+                        [ 3956.0, 1 ],
+                        [ 4000.0, 1 ],
+                        [ 4040.0, 1 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 1 ],
+                        [ 4208.0, 1 ],
+                        [ 4248.0, 1 ],
+                        [ 4288.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 1 ],
+                        [ 4416.0, 1 ],
+                        [ 4456.0, 1 ],
+                        [ 4536.0, 1 ],
+                        [ 4624.0, 1 ],
+                        [ 4704.0, 1 ],
+                        [ 4832.0, 1 ],
+                        [ 5576.0, 1 ],
+                        [ 5664.0, 1 ],
+                        [ 5912.0, 1 ],
+                        [ 5952.0, 1 ],
+                        [ 6040.0, 1 ],
+                        [ 6416.0, 1 ],
+                        [ 6704.0, 1 ],
+                        [ 6744.0, 1 ],
+                        [ 6784.0, 1 ],
+                        [ 6952.0, 1 ],
+                        [ 7040.0, 1 ],
+                        [ 7160.0, 1 ],
+                        [ 7536.0, 1 ],
+                        [ 8000.0, 1 ],
+                        [ 8208.0, 1 ],
+                        [ 8576.0, 1 ],
+                        [ 8784.0, 1 ],
+                        [ 8992.0, 1 ],
+                        [ 9072.0, 1 ],
+                        [ 9152.0, 1 ],
+                        [ 9200.0, 1 ],
+                        [ 10080.0, 1 ],
+                        [ 10320.0, 1 ],
+                        [ 10528.0, 1 ],
+                        [ 10624.0, 1 ],
+                        [ 10704.0, 1 ],
+                        [ 10736.0, 1 ],
+                        [ 11248.0, 1 ],
+                        [ 11280.0, 1 ],
+                        [ 11664.0, 1 ],
+                        [ 11696.0, 1 ],
+                        [ 12032.0, 1 ],
+                        [ 12208.0, 1 ],
+                        [ 12624.0, 1 ],
+                        [ 12912.0, 1 ],
+                        [ 12944.0, 1 ],
+                        [ 13120.0, 1 ],
+                        [ 13152.0, 1 ],
+                        [ 13200.0, 1 ],
+                        [ 14240.0, 1 ],
+                        [ 14944.0, 1 ],
+                        [ 15200.0, 1 ],
+                        [ 15456.0, 1 ],
+                        [ 15536.0, 1 ],
+                        [ 15616.0, 1 ],
+                        [ 15824.0, 1 ],
+                        [ 16640.0, 1 ],
+                        [ 17024.0, 1 ],
+                        [ 17312.0, 1 ],
+                        [ 18848.0, 1 ],
+                        [ 19200.0, 1 ],
+                        [ 19328.0, 1 ],
+                        [ 19360.0, 1 ],
+                        [ 19872.0, 1 ],
+                        [ 20032.0, 1 ],
+                        [ 20576.0, 1 ],
+                        [ 21120.0, 1 ],
+                        [ 22624.0, 1 ],
+                        [ 23264.0, 1 ],
+                        [ 24704.0, 1 ],
+                        [ 32160.0, 1 ],
+                        [ 32768.0, 1 ],
+                        [ 33536.0, 1 ],
+                        [ 36160.0, 1 ],
+                        [ 37376.0, 1 ],
+                        [ 40192.0, 1 ],
+                        [ 41728.0, 1 ],
+                        [ 68096.0, 1 ],
+                        [ 174848.0, 1 ]
+                    ],
+                    [
+                        [ 0.0, 1 ],
+                        [ 41.0, 286 ],
+                        [ 42.0, 568 ],
+                        [ 83.0, 687 ],
+                        [ 84.0, 358 ],
+                        [ 125.0, 1443 ],
+                        [ 166.0, 2402 ],
+                        [ 167.0, 4864 ],
+                        [ 208.0, 3426 ],
+                        [ 209.0, 1755 ],
+                        [ 250.0, 3572 ],
+                        [ 291.0, 895 ],
+                        [ 292.0, 1803 ],
+                        [ 333.0, 542 ],
+                        [ 334.0, 277 ],
+                        [ 375.0, 293 ],
+                        [ 416.0, 35 ],
+                        [ 417.0, 76 ],
+                        [ 458.0, 30 ],
+                        [ 459.0, 17 ],
+                        [ 500.0, 21 ],
+                        [ 541.0, 4 ],
+                        [ 542.0, 6 ],
+                        [ 583.0, 4 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 5 ],
+                        [ 666.0, 1 ],
+                        [ 667.0, 1 ],
+                        [ 708.0, 1 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 1 ],
+                        [ 791.0, 1 ],
+                        [ 792.0, 1 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 916.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 1 ],
+                        [ 1042.0, 2 ],
+                        [ 1082.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1290.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1500.0, 1 ],
+                        [ 1582.0, 1 ],
+                        [ 1624.0, 1 ],
+                        [ 1708.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1790.0, 1 ],
+                        [ 1792.0, 1 ],
+                        [ 1834.0, 1 ],
+                        [ 1874.0, 1 ],
+                        [ 2000.0, 1 ],
+                        [ 2080.0, 1 ],
+                        [ 2288.0, 1 ],
+                        [ 2292.0, 1 ],
+                        [ 2332.0, 1 ],
+                        [ 2416.0, 1 ],
+                        [ 2500.0, 1 ],
+                        [ 2540.0, 1 ],
+                        [ 2584.0, 1 ],
+                        [ 2624.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2708.0, 1 ],
+                        [ 2792.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2872.0, 1 ],
+                        [ 2956.0, 1 ],
+                        [ 3000.0, 1 ],
+                        [ 3040.0, 1 ],
+                        [ 3080.0, 1 ],
+                        [ 3084.0, 1 ],
+                        [ 3124.0, 1 ],
+                        [ 3164.0, 1 ],
+                        [ 3208.0, 1 ],
+                        [ 3288.0, 1 ],
+                        [ 3292.0, 1 ],
+                        [ 3372.0, 1 ],
+                        [ 3416.0, 1 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 1 ],
+                        [ 3540.0, 1 ],
+                        [ 3580.0, 1 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3748.0, 1 ],
+                        [ 3788.0, 1 ],
+                        [ 3956.0, 1 ],
+                        [ 4040.0, 1 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 1 ],
+                        [ 4208.0, 1 ],
+                        [ 4248.0, 1 ],
+                        [ 4288.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 1 ],
+                        [ 4416.0, 1 ],
+                        [ 4456.0, 1 ],
+                        [ 4496.0, 1 ],
+                        [ 4536.0, 1 ],
+                        [ 4576.0, 1 ],
+                        [ 4624.0, 1 ],
+                        [ 4664.0, 1 ],
+                        [ 4704.0, 1 ],
+                        [ 5040.0, 1 ],
+                        [ 5080.0, 1 ],
+                        [ 5160.0, 1 ],
+                        [ 5536.0, 1 ],
+                        [ 5576.0, 1 ],
+                        [ 5584.0, 1 ],
+                        [ 5664.0, 1 ],
+                        [ 5872.0, 1 ],
+                        [ 6080.0, 1 ],
+                        [ 6704.0, 1 ],
+                        [ 6952.0, 1 ],
+                        [ 7040.0, 1 ],
+                        [ 7328.0, 1 ],
+                        [ 7416.0, 1 ],
+                        [ 7496.0, 1 ],
+                        [ 7536.0, 1 ],
+                        [ 7624.0, 1 ],
+                        [ 7704.0, 1 ],
+                        [ 7912.0, 1 ],
+                        [ 8000.0, 1 ],
+                        [ 8080.0, 1 ],
+                        [ 8160.0, 1 ],
+                        [ 8240.0, 1 ],
+                        [ 8368.0, 1 ],
+                        [ 8576.0, 1 ],
+                        [ 8624.0, 1 ],
+                        [ 8912.0, 1 ],
+                        [ 9040.0, 1 ],
+                        [ 9152.0, 1 ],
+                        [ 9280.0, 1 ],
+                        [ 9952.0, 1 ],
+                        [ 10368.0, 1 ],
+                        [ 10496.0, 1 ],
+                        [ 10736.0, 1 ],
+                        [ 10864.0, 1 ],
+                        [ 10944.0, 1 ],
+                        [ 11120.0, 1 ],
+                        [ 11328.0, 1 ],
+                        [ 11616.0, 1 ],
+                        [ 11872.0, 1 ],
+                        [ 11904.0, 1 ],
+                        [ 11952.0, 1 ],
+                        [ 12000.0, 1 ],
+                        [ 12736.0, 1 ],
+                        [ 12832.0, 1 ],
+                        [ 12992.0, 1 ],
+                        [ 13568.0, 1 ],
+                        [ 13872.0, 1 ],
+                        [ 13952.0, 1 ],
+                        [ 14080.0, 1 ],
+                        [ 14112.0, 1 ],
+                        [ 14160.0, 1 ],
+                        [ 14208.0, 1 ],
+                        [ 14288.0, 1 ],
+                        [ 14320.0, 1 ],
+                        [ 14368.0, 1 ],
+                        [ 14448.0, 1 ],
+                        [ 14784.0, 1 ],
+                        [ 15200.0, 1 ],
+                        [ 15488.0, 1 ],
+                        [ 15584.0, 1 ],
+                        [ 15664.0, 1 ],
+                        [ 15744.0, 1 ],
+                        [ 15824.0, 1 ],
+                        [ 16032.0, 1 ],
+                        [ 16368.0, 1 ],
+                        [ 16448.0, 1 ],
+                        [ 16512.0, 1 ],
+                        [ 17024.0, 1 ],
+                        [ 17056.0, 1 ],
+                        [ 17696.0, 1 ],
+                        [ 18688.0, 1 ],
+                        [ 18912.0, 1 ],
+                        [ 19200.0, 1 ],
+                        [ 19808.0, 1 ],
+                        [ 19936.0, 1 ],
+                        [ 20768.0, 1 ],
+                        [ 21184.0, 1 ],
+                        [ 21312.0, 1 ],
+                        [ 22208.0, 1 ],
+                        [ 24000.0, 1 ],
+                        [ 24928.0, 1 ],
+                        [ 25184.0, 1 ],
+                        [ 25568.0, 1 ],
+                        [ 31360.0, 1 ],
+                        [ 33536.0, 1 ],
+                        [ 34176.0, 1 ],
+                        [ 46208.0, 1 ],
+                        [ 46336.0, 1 ]
+                    ]
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+            "p0.00" : {
+                "score" : 0.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 0.0,
+                    "50.0" : 0.0,
+                    "90.0" : 0.0,
+                    "95.0" : 0.0,
+                    "99.0" : 0.0,
+                    "99.9" : 0.0,
+                    "99.99" : 0.0,
+                    "99.999" : 0.0,
+                    "99.9999" : 0.0,
+                    "100.0" : 0.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ]
+            },
+            "p0.50" : {
+                "score" : 167.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 167.0,
+                    "50.0" : 167.0,
+                    "90.0" : 167.0,
+                    "95.0" : 167.0,
+                    "99.0" : 167.0,
+                    "99.9" : 167.0,
+                    "99.99" : 167.0,
+                    "99.999" : 167.0,
+                    "99.9999" : 167.0,
+                    "100.0" : 167.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        125.0,
+                        208.0
+                    ]
+                ]
+            },
+            "p0.90" : {
+                "score" : 291.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 291.0,
+                    "50.0" : 291.0,
+                    "90.0" : 291.0,
+                    "95.0" : 291.0,
+                    "99.0" : 291.0,
+                    "99.9" : 291.0,
+                    "99.99" : 291.0,
+                    "99.999" : 291.0,
+                    "99.9999" : 291.0,
+                    "100.0" : 291.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        209.0,
+                        292.0
+                    ]
+                ]
+            },
+            "p0.95" : {
+                "score" : 292.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 292.0,
+                    "50.0" : 292.0,
+                    "90.0" : 292.0,
+                    "95.0" : 292.0,
+                    "99.0" : 292.0,
+                    "99.9" : 292.0,
+                    "99.99" : 292.0,
+                    "99.999" : 292.0,
+                    "99.9999" : 292.0,
+                    "100.0" : 292.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        250.0,
+                        333.0
+                    ]
+                ]
+            },
+            "p0.99" : {
+                "score" : 417.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 417.0,
+                    "50.0" : 417.0,
+                    "90.0" : 417.0,
+                    "95.0" : 417.0,
+                    "99.0" : 417.0,
+                    "99.9" : 417.0,
+                    "99.99" : 417.0,
+                    "99.999" : 417.0,
+                    "99.9999" : 417.0,
+                    "100.0" : 417.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        375.0,
+                        458.0
+                    ]
+                ]
+            },
+            "p0.999" : {
+                "score" : 16380.239999999874,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 16380.239999999874,
+                    "50.0" : 16380.239999999874,
+                    "90.0" : 16380.239999999874,
+                    "95.0" : 16380.239999999874,
+                    "99.0" : 16380.239999999874,
+                    "99.9" : 16380.239999999874,
+                    "99.99" : 16380.239999999874,
+                    "99.999" : 16380.239999999874,
+                    "99.9999" : 16380.239999999874,
+                    "100.0" : 16380.239999999874
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        16394.384000000427,
+                        16404.240000000107
+                    ]
+                ]
+            },
+            "p0.9999" : {
+                "score" : 43140.54399997648,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 43140.54399997648,
+                    "50.0" : 43140.54399997648,
+                    "90.0" : 43140.54399997648,
+                    "95.0" : 43140.54399997648,
+                    "99.0" : 43140.54399997648,
+                    "99.9" : 43140.54399997648,
+                    "99.99" : 43140.54399997648,
+                    "99.999" : 43140.54399997648,
+                    "99.9999" : 43140.54399997648,
+                    "100.0" : 43140.54399997648
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        59391.92319992464,
+                        41940.24959995784
+                    ]
+                ]
+            },
+            "p1.00" : {
+                "score" : 174848.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 174848.0,
+                    "50.0" : 174848.0,
+                    "90.0" : 174848.0,
+                    "95.0" : 174848.0,
+                    "99.0" : 174848.0,
+                    "99.9" : 174848.0,
+                    "99.99" : 174848.0,
+                    "99.999" : 174848.0,
+                    "99.9999" : 174848.0,
+                    "100.0" : 174848.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        174848.0,
+                        46336.0
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadLatencyBenchmark.getSample",
+        "mode" : "sample",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "JDK"
+        },
+        "primaryMetric" : {
+            "score" : 160.7417384910747,
+            "scoreError" : 12.70753468439211,
+            "scoreConfidence" : [
+                148.0342038066826,
+                173.4492731754668
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0,
+                "50.0" : 125.0,
+                "90.0" : 250.0,
+                "95.0" : 250.0,
+                "99.0" : 375.0,
+                "99.9" : 13271.088000002434,
+                "99.99" : 40103.82079999987,
+                "99.999" : 49280.0,
+                "99.9999" : 49280.0,
+                "100.0" : 49280.0
+            },
+            "scoreUnit" : "ns/op",
+            "rawDataHistogram" : [
+                [
+                    [
+                        [ 0.0, 3379 ],
+                        [ 41.0, 1577 ],
+                        [ 42.0, 3228 ],
+                        [ 83.0, 2299 ],
+                        [ 84.0, 1121 ],
+                        [ 125.0, 4093 ],
+                        [ 166.0, 1239 ],
+                        [ 167.0, 2423 ],
+                        [ 208.0, 1602 ],
+                        [ 209.0, 855 ],
+                        [ 250.0, 1462 ],
+                        [ 291.0, 208 ],
+                        [ 292.0, 432 ],
+                        [ 333.0, 151 ],
+                        [ 334.0, 73 ],
+                        [ 375.0, 80 ],
+                        [ 416.0, 6 ],
+                        [ 417.0, 18 ],
+                        [ 458.0, 8 ],
+                        [ 459.0, 3 ],
+                        [ 500.0, 6 ],
+                        [ 541.0, 1 ],
+                        [ 542.0, 1 ],
+                        [ 583.0, 1 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 1 ],
+                        [ 666.0, 1 ],
+                        [ 667.0, 2 ],
+                        [ 708.0, 1 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 2 ],
+                        [ 791.0, 1 ],
+                        [ 792.0, 1 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 1 ],
+                        [ 1040.0, 1 ],
+                        [ 1042.0, 1 ],
+                        [ 1082.0, 1 ],
+                        [ 1084.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1250.0, 1 ],
+                        [ 1290.0, 1 ],
+                        [ 1292.0, 1 ],
+                        [ 1332.0, 1 ],
+                        [ 1334.0, 1 ],
+                        [ 1374.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1458.0, 1 ],
+                        [ 1542.0, 1 ],
+                        [ 1584.0, 1 ],
+                        [ 1624.0, 1 ],
+                        [ 1666.0, 1 ],
+                        [ 1708.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1792.0, 2 ],
+                        [ 1832.0, 1 ],
+                        [ 1916.0, 1 ],
+                        [ 1958.0, 2 ],
+                        [ 2000.0, 1 ],
+                        [ 2042.0, 1 ],
+                        [ 2080.0, 1 ],
+                        [ 2084.0, 1 ],
+                        [ 2124.0, 1 ],
+                        [ 2164.0, 1 ],
+                        [ 2248.0, 1 ],
+                        [ 2292.0, 1 ],
+                        [ 2416.0, 1 ],
+                        [ 2456.0, 1 ],
+                        [ 2500.0, 1 ],
+                        [ 2540.0, 1 ],
+                        [ 2584.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2748.0, 1 ],
+                        [ 2792.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2872.0, 1 ],
+                        [ 2916.0, 1 ],
+                        [ 2956.0, 1 ],
+                        [ 3000.0, 1 ],
+                        [ 3040.0, 1 ],
+                        [ 3084.0, 1 ],
+                        [ 3124.0, 1 ],
+                        [ 3164.0, 1 ],
+                        [ 3208.0, 2 ],
+                        [ 3248.0, 1 ],
+                        [ 3332.0, 1 ],
+                        [ 3372.0, 1 ],
+                        [ 3416.0, 1 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 1 ],
+                        [ 3540.0, 1 ],
+                        [ 3580.0, 1 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3708.0, 1 ],
+                        [ 3788.0, 1 ],
+                        [ 3832.0, 1 ],
+                        [ 3872.0, 1 ],
+                        [ 3916.0, 1 ],
+                        [ 3956.0, 1 ],
+                        [ 4000.0, 1 ],
+                        [ 4040.0, 2 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 2 ],
+                        [ 4208.0, 2 ],
+                        [ 4248.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 2 ],
+                        [ 4416.0, 1 ],
+                        [ 4496.0, 1 ],
+                        [ 4536.0, 1 ],
+                        [ 4576.0, 1 ],
+                        [ 4624.0, 1 ],
+                        [ 4664.0, 1 ],
+                        [ 4792.0, 1 ],
+                        [ 4832.0, 1 ],
+                        [ 5000.0, 1 ],
+                        [ 5080.0, 1 ],
+                        [ 5120.0, 1 ],
+                        [ 5160.0, 1 ],
+                        [ 5368.0, 1 ],
+                        [ 5536.0, 1 ],
+                        [ 5872.0, 1 ],
+                        [ 6664.0, 1 ],
+                        [ 6784.0, 1 ],
+                        [ 6792.0, 1 ],
+                        [ 7248.0, 1 ],
+                        [ 7456.0, 1 ],
+                        [ 7496.0, 1 ],
+                        [ 7536.0, 1 ],
+                        [ 7744.0, 1 ],
+                        [ 7792.0, 1 ],
+                        [ 7952.0, 1 ],
+                        [ 8000.0, 1 ],
+                        [ 8120.0, 1 ],
+                        [ 8416.0, 1 ],
+                        [ 8448.0, 1 ],
+                        [ 8528.0, 1 ],
+                        [ 9360.0, 1 ],
+                        [ 9488.0, 1 ],
+                        [ 9568.0, 1 ],
+                        [ 9792.0, 1 ],
+                        [ 9872.0, 1 ],
+                        [ 10160.0, 1 ],
+                        [ 10832.0, 2 ],
+                        [ 10992.0, 1 ],
+                        [ 11328.0, 1 ],
+                        [ 11488.0, 1 ],
+                        [ 11696.0, 1 ],
+                        [ 11904.0, 1 ],
+                        [ 12160.0, 1 ],
+                        [ 12208.0, 1 ],
+                        [ 12368.0, 1 ],
+                        [ 12704.0, 1 ],
+                        [ 12864.0, 1 ],
+                        [ 13040.0, 1 ],
+                        [ 13248.0, 1 ],
+                        [ 13872.0, 1 ],
+                        [ 13904.0, 1 ],
+                        [ 13952.0, 1 ],
+                        [ 14160.0, 1 ],
+                        [ 14944.0, 1 ],
+                        [ 15248.0, 1 ],
+                        [ 15664.0, 1 ],
+                        [ 15872.0, 1 ],
+                        [ 16864.0, 1 ],
+                        [ 17024.0, 1 ],
+                        [ 17728.0, 1 ],
+                        [ 17888.0, 1 ],
+                        [ 19392.0, 1 ],
+                        [ 19680.0, 1 ],
+                        [ 21344.0, 1 ],
+                        [ 21440.0, 1 ],
+                        [ 21536.0, 1 ],
+                        [ 22016.0, 1 ],
+                        [ 22368.0, 1 ],
+                        [ 24320.0, 1 ],
+                        [ 24512.0, 1 ],
+                        [ 25024.0, 1 ],
+                        [ 26240.0, 1 ],
+                        [ 26784.0, 1 ],
+                        [ 28448.0, 1 ],
+                        [ 39360.0, 1 ],
+                        [ 40064.0, 1 ],
+                        [ 40448.0, 1 ]
+                    ],
+                    [
+                        [ 0.0, 3357 ],
+                        [ 41.0, 1621 ],
+                        [ 42.0, 3171 ],
+                        [ 83.0, 2314 ],
+                        [ 84.0, 1178 ],
+                        [ 125.0, 4162 ],
+                        [ 166.0, 1208 ],
+                        [ 167.0, 2434 ],
+                        [ 208.0, 1668 ],
+                        [ 209.0, 820 ],
+                        [ 250.0, 1428 ],
+                        [ 291.0, 222 ],
+                        [ 292.0, 408 ],
+                        [ 333.0, 161 ],
+                        [ 334.0, 81 ],
+                        [ 375.0, 87 ],
+                        [ 416.0, 10 ],
+                        [ 417.0, 19 ],
+                        [ 458.0, 5 ],
+                        [ 459.0, 3 ],
+                        [ 500.0, 4 ],
+                        [ 541.0, 1 ],
+                        [ 542.0, 1 ],
+                        [ 583.0, 1 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 2 ],
+                        [ 666.0, 1 ],
+                        [ 667.0, 2 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 2 ],
+                        [ 791.0, 1 ],
+                        [ 792.0, 1 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 1 ],
+                        [ 1040.0, 1 ],
+                        [ 1042.0, 1 ],
+                        [ 1082.0, 1 ],
+                        [ 1084.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1250.0, 1 ],
+                        [ 1292.0, 1 ],
+                        [ 1332.0, 1 ],
+                        [ 1334.0, 1 ],
+                        [ 1374.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1458.0, 1 ],
+                        [ 1500.0, 1 ],
+                        [ 1540.0, 1 ],
+                        [ 1542.0, 1 ],
+                        [ 1624.0, 1 ],
+                        [ 1708.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1792.0, 1 ],
+                        [ 1832.0, 1 ],
+                        [ 1916.0, 1 ],
+                        [ 2040.0, 1 ],
+                        [ 2042.0, 1 ],
+                        [ 2080.0, 1 ],
+                        [ 2124.0, 1 ],
+                        [ 2248.0, 1 ],
+                        [ 2292.0, 1 ],
+                        [ 2372.0, 1 ],
+                        [ 2416.0, 1 ],
+                        [ 2456.0, 1 ],
+                        [ 2540.0, 1 ],
+                        [ 2580.0, 1 ],
+                        [ 2624.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2708.0, 1 ],
+                        [ 2748.0, 1 ],
+                        [ 2788.0, 1 ],
+                        [ 2792.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2872.0, 1 ],
+                        [ 2916.0, 1 ],
+                        [ 2956.0, 1 ],
+                        [ 3080.0, 1 ],
+                        [ 3124.0, 1 ],
+                        [ 3164.0, 1 ],
+                        [ 3208.0, 1 ],
+                        [ 3248.0, 1 ],
+                        [ 3288.0, 1 ],
+                        [ 3292.0, 1 ],
+                        [ 3332.0, 1 ],
+                        [ 3372.0, 1 ],
+                        [ 3416.0, 1 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 2 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3708.0, 1 ],
+                        [ 3748.0, 1 ],
+                        [ 3792.0, 1 ],
+                        [ 3832.0, 1 ],
+                        [ 3872.0, 1 ],
+                        [ 3916.0, 1 ],
+                        [ 3956.0, 1 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 1 ],
+                        [ 4208.0, 1 ],
+                        [ 4288.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 1 ],
+                        [ 4416.0, 1 ],
+                        [ 4456.0, 2 ],
+                        [ 4496.0, 1 ],
+                        [ 4576.0, 1 ],
+                        [ 4792.0, 1 ],
+                        [ 5288.0, 1 ],
+                        [ 5576.0, 1 ],
+                        [ 5704.0, 1 ],
+                        [ 5744.0, 1 ],
+                        [ 6328.0, 1 ],
+                        [ 6416.0, 1 ],
+                        [ 6496.0, 1 ],
+                        [ 6576.0, 1 ],
+                        [ 6584.0, 1 ],
+                        [ 6952.0, 1 ],
+                        [ 7120.0, 1 ],
+                        [ 7160.0, 1 ],
+                        [ 7368.0, 1 ],
+                        [ 7456.0, 1 ],
+                        [ 7952.0, 1 ],
+                        [ 8416.0, 1 ],
+                        [ 8784.0, 1 ],
+                        [ 9072.0, 1 ],
+                        [ 9200.0, 1 ],
+                        [ 9328.0, 1 ],
+                        [ 9408.0, 1 ],
+                        [ 9536.0, 1 ],
+                        [ 9792.0, 1 ],
+                        [ 10112.0, 1 ],
+                        [ 10160.0, 1 ],
+                        [ 10624.0, 1 ],
+                        [ 10832.0, 1 ],
+                        [ 11328.0, 1 ],
+                        [ 11824.0, 1 ],
+                        [ 12112.0, 1 ],
+                        [ 12704.0, 1 ],
+                        [ 12944.0, 1 ],
+                        [ 13072.0, 1 ],
+                        [ 13120.0, 1 ],
+                        [ 13904.0, 1 ],
+                        [ 14416.0, 1 ],
+                        [ 14992.0, 1 ],
+                        [ 15200.0, 1 ],
+                        [ 15280.0, 1 ],
+                        [ 15824.0, 1 ],
+                        [ 16416.0, 1 ],
+                        [ 16448.0, 1 ],
+                        [ 17248.0, 1 ],
+                        [ 17344.0, 1 ],
+                        [ 18432.0, 1 ],
+                        [ 18688.0, 1 ],
+                        [ 18848.0, 1 ],
+                        [ 20832.0, 1 ],
+                        [ 22816.0, 1 ],
+                        [ 32832.0, 1 ],
+                        [ 34304.0, 1 ],
+                        [ 40640.0, 1 ],
+                        [ 46592.0, 1 ],
+                        [ 49280.0, 1 ]
+                    ]
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+            "p0.00" : {
+                "score" : 0.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 0.0,
+                    "50.0" : 0.0,
+                    "90.0" : 0.0,
+                    "95.0" : 0.0,
+                    "99.0" : 0.0,
+                    "99.9" : 0.0,
+                    "99.99" : 0.0,
+                    "99.999" : 0.0,
+                    "99.9999" : 0.0,
+                    "100.0" : 0.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ]
+            },
+            "p0.50" : {
+                "score" : 125.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 125.0,
+                    "50.0" : 125.0,
+                    "90.0" : 125.0,
+                    "95.0" : 125.0,
+                    "99.0" : 125.0,
+                    "99.9" : 125.0,
+                    "99.99" : 125.0,
+                    "99.999" : 125.0,
+                    "99.9999" : 125.0,
+                    "100.0" : 125.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        125.0,
+                        125.0
+                    ]
+                ]
+            },
+            "p0.90" : {
+                "score" : 250.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 250.0,
+                    "50.0" : 250.0,
+                    "90.0" : 250.0,
+                    "95.0" : 250.0,
+                    "99.0" : 250.0,
+                    "99.9" : 250.0,
+                    "99.99" : 250.0,
+                    "99.999" : 250.0,
+                    "99.9999" : 250.0,
+                    "100.0" : 250.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        250.0,
+                        250.0
+                    ]
+                ]
+            },
+            "p0.95" : {
+                "score" : 250.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 250.0,
+                    "50.0" : 250.0,
+                    "90.0" : 250.0,
+                    "95.0" : 250.0,
+                    "99.0" : 250.0,
+                    "99.9" : 250.0,
+                    "99.99" : 250.0,
+                    "99.999" : 250.0,
+                    "99.9999" : 250.0,
+                    "100.0" : 250.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        250.0,
+                        250.0
+                    ]
+                ]
+            },
+            "p0.99" : {
+                "score" : 375.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 375.0,
+                    "50.0" : 375.0,
+                    "90.0" : 375.0,
+                    "95.0" : 375.0,
+                    "99.0" : 375.0,
+                    "99.9" : 375.0,
+                    "99.99" : 375.0,
+                    "99.999" : 375.0,
+                    "99.9999" : 375.0,
+                    "100.0" : 375.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        375.0,
+                        375.0
+                    ]
+                ]
+            },
+            "p0.999" : {
+                "score" : 13271.088000002434,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 13271.088000002434,
+                    "50.0" : 13271.088000002434,
+                    "90.0" : 13271.088000002434,
+                    "95.0" : 13271.088000002434,
+                    "99.0" : 13271.088000002434,
+                    "99.9" : 13271.088000002434,
+                    "99.99" : 13271.088000002434,
+                    "99.999" : 13271.088000002434,
+                    "99.9999" : 13271.088000002434,
+                    "100.0" : 13271.088000002434
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        14593.55200000276,
+                        12397.936000002257
+                    ]
+                ]
+            },
+            "p0.9999" : {
+                "score" : 40103.82079999987,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 40103.82079999987,
+                    "50.0" : 40103.82079999987,
+                    "90.0" : 40103.82079999987,
+                    "95.0" : 40103.82079999987,
+                    "99.0" : 40103.82079999987,
+                    "99.9" : 40103.82079999987,
+                    "99.99" : 40103.82079999987,
+                    "99.999" : 40103.82079999987,
+                    "99.9999" : 40103.82079999987,
+                    "100.0" : 40103.82079999987
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        39750.93119999743,
+                        43903.481600013096
+                    ]
+                ]
+            },
+            "p1.00" : {
+                "score" : 49280.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 49280.0,
+                    "50.0" : 49280.0,
+                    "90.0" : 49280.0,
+                    "95.0" : 49280.0,
+                    "99.0" : 49280.0,
+                    "99.9" : 49280.0,
+                    "99.99" : 49280.0,
+                    "99.999" : 49280.0,
+                    "99.9999" : 49280.0,
+                    "100.0" : 49280.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        40448.0,
+                        49280.0
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmarks.ReadLatencyBenchmark.getSample",
+        "mode" : "sample",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/Users/macsia/Library/Java/JavaVirtualMachines/openjdk-25.0.1/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/macsia/projects/testProjects/db-algo-lab4/build/tmp/jmh",
+            "-Duser.country=001",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "-Djmh.ignoreLock=true",
+            "-Xmx2g",
+            "-Xms256m",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "25.0.1",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.1+8-27",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "impl" : "SYNC"
+        },
+        "primaryMetric" : {
+            "score" : 138.00012655379942,
+            "scoreError" : 8.733598401296723,
+            "scoreConfidence" : [
+                129.2665281525027,
+                146.73372495509614
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.0,
+                "50.0" : 125.0,
+                "90.0" : 250.0,
+                "95.0" : 250.0,
+                "99.0" : 375.0,
+                "99.9" : 7035.320000000065,
+                "99.99" : 19960.342400005553,
+                "99.999" : 128256.0,
+                "99.9999" : 128256.0,
+                "100.0" : 128256.0
+            },
+            "scoreUnit" : "ns/op",
+            "rawDataHistogram" : [
+                [
+                    [
+                        [ 0.0, 4357 ],
+                        [ 41.0, 2679 ],
+                        [ 42.0, 5301 ],
+                        [ 83.0, 2955 ],
+                        [ 84.0, 1556 ],
+                        [ 125.0, 5139 ],
+                        [ 166.0, 1570 ],
+                        [ 167.0, 3165 ],
+                        [ 208.0, 2346 ],
+                        [ 209.0, 1148 ],
+                        [ 250.0, 2509 ],
+                        [ 291.0, 383 ],
+                        [ 292.0, 753 ],
+                        [ 333.0, 278 ],
+                        [ 334.0, 142 ],
+                        [ 375.0, 167 ],
+                        [ 416.0, 24 ],
+                        [ 417.0, 31 ],
+                        [ 458.0, 10 ],
+                        [ 459.0, 5 ],
+                        [ 500.0, 10 ],
+                        [ 541.0, 2 ],
+                        [ 542.0, 3 ],
+                        [ 583.0, 2 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 2 ],
+                        [ 666.0, 2 ],
+                        [ 667.0, 1 ],
+                        [ 708.0, 1 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 2 ],
+                        [ 791.0, 1 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 916.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 1 ],
+                        [ 1040.0, 1 ],
+                        [ 1042.0, 1 ],
+                        [ 1082.0, 1 ],
+                        [ 1084.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1250.0, 1 ],
+                        [ 1290.0, 1 ],
+                        [ 1292.0, 1 ],
+                        [ 1332.0, 1 ],
+                        [ 1334.0, 1 ],
+                        [ 1374.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1458.0, 1 ],
+                        [ 1500.0, 1 ],
+                        [ 1542.0, 1 ],
+                        [ 1582.0, 1 ],
+                        [ 1584.0, 2 ],
+                        [ 1624.0, 1 ],
+                        [ 1666.0, 1 ],
+                        [ 1708.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1790.0, 1 ],
+                        [ 1792.0, 1 ],
+                        [ 1832.0, 1 ],
+                        [ 1874.0, 1 ],
+                        [ 1916.0, 1 ],
+                        [ 1958.0, 1 ],
+                        [ 2000.0, 1 ],
+                        [ 2040.0, 1 ],
+                        [ 2084.0, 1 ],
+                        [ 2124.0, 1 ],
+                        [ 2208.0, 1 ],
+                        [ 2248.0, 1 ],
+                        [ 2288.0, 1 ],
+                        [ 2292.0, 1 ],
+                        [ 2332.0, 1 ],
+                        [ 2372.0, 1 ],
+                        [ 2456.0, 1 ],
+                        [ 2500.0, 1 ],
+                        [ 2540.0, 1 ],
+                        [ 2624.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2708.0, 1 ],
+                        [ 2748.0, 3 ],
+                        [ 2792.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2916.0, 1 ],
+                        [ 3000.0, 1 ],
+                        [ 3040.0, 1 ],
+                        [ 3080.0, 1 ],
+                        [ 3084.0, 1 ],
+                        [ 3124.0, 1 ],
+                        [ 3288.0, 1 ],
+                        [ 3292.0, 1 ],
+                        [ 3332.0, 1 ],
+                        [ 3416.0, 1 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 1 ],
+                        [ 3540.0, 1 ],
+                        [ 3580.0, 1 ],
+                        [ 3584.0, 1 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3748.0, 1 ],
+                        [ 3788.0, 1 ],
+                        [ 3832.0, 2 ],
+                        [ 3872.0, 1 ],
+                        [ 3916.0, 1 ],
+                        [ 3956.0, 1 ],
+                        [ 4000.0, 1 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 1 ],
+                        [ 4208.0, 1 ],
+                        [ 4248.0, 2 ],
+                        [ 4288.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 1 ],
+                        [ 4416.0, 1 ],
+                        [ 4456.0, 1 ],
+                        [ 4496.0, 1 ],
+                        [ 4624.0, 1 ],
+                        [ 4704.0, 1 ],
+                        [ 4784.0, 1 ],
+                        [ 4792.0, 1 ],
+                        [ 4912.0, 1 ],
+                        [ 5000.0, 1 ],
+                        [ 5160.0, 1 ],
+                        [ 5576.0, 1 ],
+                        [ 6080.0, 1 ],
+                        [ 6120.0, 1 ],
+                        [ 6248.0, 1 ],
+                        [ 6832.0, 1 ],
+                        [ 7000.0, 1 ],
+                        [ 7288.0, 1 ],
+                        [ 7576.0, 1 ],
+                        [ 8240.0, 1 ],
+                        [ 8912.0, 1 ],
+                        [ 9120.0, 1 ],
+                        [ 9280.0, 1 ],
+                        [ 9824.0, 1 ],
+                        [ 9904.0, 1 ],
+                        [ 10000.0, 1 ],
+                        [ 10208.0, 2 ],
+                        [ 10944.0, 1 ],
+                        [ 11360.0, 1 ],
+                        [ 11536.0, 1 ],
+                        [ 12000.0, 1 ],
+                        [ 12240.0, 1 ],
+                        [ 12912.0, 1 ],
+                        [ 13904.0, 1 ],
+                        [ 14288.0, 1 ],
+                        [ 14992.0, 1 ],
+                        [ 15456.0, 1 ],
+                        [ 16864.0, 1 ],
+                        [ 18304.0, 1 ],
+                        [ 18560.0, 1 ],
+                        [ 18720.0, 1 ],
+                        [ 19136.0, 1 ],
+                        [ 29440.0, 1 ],
+                        [ 51520.0, 1 ]
+                    ],
+                    [
+                        [ 0.0, 4920 ],
+                        [ 41.0, 2942 ],
+                        [ 42.0, 5916 ],
+                        [ 83.0, 3172 ],
+                        [ 84.0, 1622 ],
+                        [ 125.0, 5639 ],
+                        [ 166.0, 1657 ],
+                        [ 167.0, 3307 ],
+                        [ 208.0, 2310 ],
+                        [ 209.0, 1140 ],
+                        [ 250.0, 2239 ],
+                        [ 291.0, 309 ],
+                        [ 292.0, 630 ],
+                        [ 333.0, 206 ],
+                        [ 334.0, 98 ],
+                        [ 375.0, 98 ],
+                        [ 416.0, 17 ],
+                        [ 417.0, 21 ],
+                        [ 458.0, 15 ],
+                        [ 459.0, 8 ],
+                        [ 500.0, 5 ],
+                        [ 541.0, 3 ],
+                        [ 542.0, 2 ],
+                        [ 583.0, 3 ],
+                        [ 584.0, 1 ],
+                        [ 625.0, 1 ],
+                        [ 666.0, 1 ],
+                        [ 667.0, 2 ],
+                        [ 708.0, 1 ],
+                        [ 709.0, 1 ],
+                        [ 750.0, 1 ],
+                        [ 791.0, 2 ],
+                        [ 833.0, 1 ],
+                        [ 834.0, 1 ],
+                        [ 875.0, 1 ],
+                        [ 917.0, 1 ],
+                        [ 958.0, 1 ],
+                        [ 959.0, 1 ],
+                        [ 1000.0, 2 ],
+                        [ 1040.0, 1 ],
+                        [ 1042.0, 1 ],
+                        [ 1082.0, 1 ],
+                        [ 1084.0, 1 ],
+                        [ 1124.0, 1 ],
+                        [ 1166.0, 1 ],
+                        [ 1208.0, 1 ],
+                        [ 1250.0, 1 ],
+                        [ 1290.0, 1 ],
+                        [ 1292.0, 1 ],
+                        [ 1332.0, 1 ],
+                        [ 1334.0, 1 ],
+                        [ 1374.0, 1 ],
+                        [ 1416.0, 1 ],
+                        [ 1458.0, 1 ],
+                        [ 1500.0, 1 ],
+                        [ 1540.0, 1 ],
+                        [ 1542.0, 1 ],
+                        [ 1582.0, 1 ],
+                        [ 1584.0, 1 ],
+                        [ 1624.0, 1 ],
+                        [ 1666.0, 1 ],
+                        [ 1750.0, 1 ],
+                        [ 1790.0, 1 ],
+                        [ 1792.0, 1 ],
+                        [ 1834.0, 1 ],
+                        [ 1958.0, 1 ],
+                        [ 2124.0, 1 ],
+                        [ 2164.0, 1 ],
+                        [ 2208.0, 1 ],
+                        [ 2248.0, 1 ],
+                        [ 2332.0, 2 ],
+                        [ 2500.0, 1 ],
+                        [ 2624.0, 1 ],
+                        [ 2664.0, 1 ],
+                        [ 2708.0, 2 ],
+                        [ 2748.0, 1 ],
+                        [ 2832.0, 1 ],
+                        [ 2872.0, 1 ],
+                        [ 2916.0, 1 ],
+                        [ 3000.0, 1 ],
+                        [ 3040.0, 1 ],
+                        [ 3080.0, 1 ],
+                        [ 3332.0, 2 ],
+                        [ 3372.0, 1 ],
+                        [ 3416.0, 2 ],
+                        [ 3456.0, 1 ],
+                        [ 3500.0, 1 ],
+                        [ 3540.0, 1 ],
+                        [ 3580.0, 1 ],
+                        [ 3584.0, 1 ],
+                        [ 3624.0, 1 ],
+                        [ 3664.0, 1 ],
+                        [ 3708.0, 2 ],
+                        [ 3748.0, 1 ],
+                        [ 3792.0, 2 ],
+                        [ 3832.0, 1 ],
+                        [ 3872.0, 1 ],
+                        [ 3916.0, 1 ],
+                        [ 3956.0, 1 ],
+                        [ 4000.0, 2 ],
+                        [ 4040.0, 1 ],
+                        [ 4080.0, 1 ],
+                        [ 4084.0, 1 ],
+                        [ 4120.0, 1 ],
+                        [ 4160.0, 1 ],
+                        [ 4208.0, 2 ],
+                        [ 4248.0, 1 ],
+                        [ 4288.0, 1 ],
+                        [ 4328.0, 1 ],
+                        [ 4368.0, 1 ],
+                        [ 4416.0, 1 ],
+                        [ 4456.0, 1 ],
+                        [ 4576.0, 1 ],
+                        [ 4584.0, 1 ],
+                        [ 4624.0, 1 ],
+                        [ 4872.0, 1 ],
+                        [ 4912.0, 1 ],
+                        [ 5744.0, 1 ],
+                        [ 5784.0, 1 ],
+                        [ 6000.0, 2 ],
+                        [ 6536.0, 1 ],
+                        [ 6872.0, 1 ],
+                        [ 7040.0, 1 ],
+                        [ 7080.0, 1 ],
+                        [ 7208.0, 1 ],
+                        [ 7288.0, 1 ],
+                        [ 7624.0, 1 ],
+                        [ 8040.0, 1 ],
+                        [ 8528.0, 1 ],
+                        [ 8832.0, 1 ],
+                        [ 8992.0, 1 ],
+                        [ 9152.0, 1 ],
+                        [ 9328.0, 1 ],
+                        [ 9616.0, 1 ],
+                        [ 9664.0, 1 ],
+                        [ 10704.0, 1 ],
+                        [ 10864.0, 1 ],
+                        [ 11664.0, 2 ],
+                        [ 11744.0, 1 ],
+                        [ 11904.0, 1 ],
+                        [ 12000.0, 1 ],
+                        [ 12112.0, 1 ],
+                        [ 12320.0, 1 ],
+                        [ 12576.0, 1 ],
+                        [ 12832.0, 1 ],
+                        [ 12912.0, 1 ],
+                        [ 13536.0, 1 ],
+                        [ 13744.0, 1 ],
+                        [ 13872.0, 1 ],
+                        [ 14208.0, 1 ],
+                        [ 14416.0, 1 ],
+                        [ 14624.0, 1 ],
+                        [ 16640.0, 2 ],
+                        [ 17056.0, 1 ],
+                        [ 17312.0, 1 ],
+                        [ 17760.0, 1 ],
+                        [ 17824.0, 1 ],
+                        [ 17856.0, 1 ],
+                        [ 20064.0, 1 ],
+                        [ 22496.0, 1 ],
+                        [ 32480.0, 1 ],
+                        [ 33536.0, 1 ],
+                        [ 128256.0, 1 ]
+                    ]
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+            "p0.00" : {
+                "score" : 0.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 0.0,
+                    "50.0" : 0.0,
+                    "90.0" : 0.0,
+                    "95.0" : 0.0,
+                    "99.0" : 0.0,
+                    "99.9" : 0.0,
+                    "99.99" : 0.0,
+                    "99.999" : 0.0,
+                    "99.9999" : 0.0,
+                    "100.0" : 0.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ]
+            },
+            "p0.50" : {
+                "score" : 125.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 125.0,
+                    "50.0" : 125.0,
+                    "90.0" : 125.0,
+                    "95.0" : 125.0,
+                    "99.0" : 125.0,
+                    "99.9" : 125.0,
+                    "99.99" : 125.0,
+                    "99.999" : 125.0,
+                    "99.9999" : 125.0,
+                    "100.0" : 125.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        125.0,
+                        84.0
+                    ]
+                ]
+            },
+            "p0.90" : {
+                "score" : 250.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 250.0,
+                    "50.0" : 250.0,
+                    "90.0" : 250.0,
+                    "95.0" : 250.0,
+                    "99.0" : 250.0,
+                    "99.9" : 250.0,
+                    "99.99" : 250.0,
+                    "99.999" : 250.0,
+                    "99.9999" : 250.0,
+                    "100.0" : 250.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        250.0,
+                        250.0
+                    ]
+                ]
+            },
+            "p0.95" : {
+                "score" : 250.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 250.0,
+                    "50.0" : 250.0,
+                    "90.0" : 250.0,
+                    "95.0" : 250.0,
+                    "99.0" : 250.0,
+                    "99.9" : 250.0,
+                    "99.99" : 250.0,
+                    "99.999" : 250.0,
+                    "99.9999" : 250.0,
+                    "100.0" : 250.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        291.0,
+                        250.0
+                    ]
+                ]
+            },
+            "p0.99" : {
+                "score" : 375.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 375.0,
+                    "50.0" : 375.0,
+                    "90.0" : 375.0,
+                    "95.0" : 375.0,
+                    "99.0" : 375.0,
+                    "99.9" : 375.0,
+                    "99.99" : 375.0,
+                    "99.999" : 375.0,
+                    "99.9999" : 375.0,
+                    "100.0" : 375.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        375.0,
+                        334.0
+                    ]
+                ]
+            },
+            "p0.999" : {
+                "score" : 7035.320000000065,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 7035.320000000065,
+                    "50.0" : 7035.320000000065,
+                    "90.0" : 7035.320000000065,
+                    "95.0" : 7035.320000000065,
+                    "99.0" : 7035.320000000065,
+                    "99.9" : 7035.320000000065,
+                    "99.99" : 7035.320000000065,
+                    "99.999" : 7035.320000000065,
+                    "99.9999" : 7035.320000000065,
+                    "100.0" : 7035.320000000065
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        5291.040000000969,
+                        8700.368000000832
+                    ]
+                ]
+            },
+            "p0.9999" : {
+                "score" : 19960.342400005553,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 19960.342400005553,
+                    "50.0" : 19960.342400005553,
+                    "90.0" : 19960.342400005553,
+                    "95.0" : 19960.342400005553,
+                    "99.0" : 19960.342400005553,
+                    "99.9" : 19960.342400005553,
+                    "99.99" : 19960.342400005553,
+                    "99.999" : 19960.342400005553,
+                    "99.9999" : 19960.342400005553,
+                    "100.0" : 19960.342400005553
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        18941.103999998886,
+                        26057.29279996641
+                    ]
+                ]
+            },
+            "p1.00" : {
+                "score" : 128256.0,
+                "scoreError" : "NaN",
+                "scoreConfidence" : [
+                    "NaN",
+                    "NaN"
+                ],
+                "scorePercentiles" : {
+                    "0.0" : 128256.0,
+                    "50.0" : 128256.0,
+                    "90.0" : 128256.0,
+                    "95.0" : 128256.0,
+                    "99.0" : 128256.0,
+                    "99.9" : 128256.0,
+                    "99.99" : 128256.0,
+                    "99.999" : 128256.0,
+                    "99.9999" : 128256.0,
+                    "100.0" : 128256.0
+                },
+                "scoreUnit" : "ns/op",
+                "rawData" : [
+                    [
+                        51520.0,
+                        128256.0
+                    ]
+                ]
+            }
+        }
+    }
+]
+
+

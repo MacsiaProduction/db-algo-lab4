@@ -50,21 +50,46 @@ read-нагрузки по числу записей в мапе (1 k → 300 M)
 
 Собственная реализация
 ([`ConcurrentHashMap.kt`](../src/main/kotlin/hashmap/ConcurrentHashMap.kt)):
-**`segmentCount = 16` striped-сегментов**, в каждом `ReentrantLock` +
+striped-сегменты (старт `segmentCount = 16`), в каждом `ReentrantLock` +
 отдельный bucket-массив (`AtomicReferenceArray`), separate chaining.
 
-- **Запись** (`put` / `merge`): берёт лок своего сегмента
-  (`spread(hash) and segmentMask`), затем обходит цепочку под локом.
-- **Чтение** (`get`): **без лока** — читает голову бакета через
-  `AtomicReferenceArray.get` (volatile-семантика) и идёт по
-  `@Volatile Node.next`. Видимость свежих записей и swap'а массива при
-  resize обеспечивает `@Volatile var buckets`.
-- **Resize**: per-segment, под локом сегмента; читатели видят либо
-  старый, либо новый массив целиком.
+- **Запись** (`put` / `merge`): читает `@Volatile` снимок раскладки
+  (`table`), берёт лок своего сегмента (`spread(hash) and segmentMask`),
+  **перепроверяет `table === t`** (если число сегментов выросло под
+  писателем — повтор на новой раскладке), затем обходит цепочку под локом.
+- **Чтение** (`get`): **без лока** — читает `table` один раз, голову
+  бакета через `AtomicReferenceArray.get` (volatile) и идёт по
+  `@Volatile Node.next`. Видимость свежих записей и swap'а массива
+  обеспечивают `@Volatile var buckets` и `@Volatile var table`.
+- **Per-segment resize**: рост bucket-массива под локом сегмента;
+  читатели видят либо старый, либо новый массив целиком.
 
-**Узкое место по записи:** при ≤ 16 сегментах число параллельных
-писателей упирается в число сегментов. При 8 потоках вероятность
-коллизии по сегменту (парадокс дней рождений) уже ≈ 88 %.
+**Динамический fair-resize числа сегментов (новое).** Помимо роста
+бакетов внутри сегмента, мапа **удваивает число сегментов**, когда любой
+сегмент перерастает watermark (`segmentGrowWatermark`, дефолт 16 384
+записи), вплоть до `maxSegmentCount` (дефолт 1024). Это снимает потолок
+параллельных писателей, который раньше был зашит в фиксированные 16
+сегментов.
+
+- Раскладка сегментов вынесена в неизменяемый `Table` за `@Volatile`
+  ссылкой; глобальный resize публикует новый `Table` **одной** записью.
+- Растит только один поток (`growLock.tryLock()`); он берёт **все** локи
+  текущей раскладки и **честно** (по `spread(hash)`) перераспределяет все
+  записи в свежие `Node` новой таблицы. Старые цепочки при этом **не
+  мутируются**, поэтому lock-free читатель на старом снимке `table`
+  остаётся корректным (слабая согласованность).
+- Писатель, успевший взять лок старого сегмента до публикации, по
+  `table === t` уходит на повтор — потерянных обновлений нет (подтверждено
+  `jcstress`, §8).
+- Конструктор: `ConcurrentHashMap(segmentCount, initialBucketsPerSegment,
+  maxSegmentCount, segmentGrowWatermark)` (все с дефолтами, `@JvmOverloads`).
+
+**Узкое место по записи (историческое).** На фиксированных 16 сегментах
+при 8 потоках вероятность коллизии по сегменту (парадокс дней рождений)
+≈ 88 %. Динамический resize двигает этот потолок: при 1 M записей мапа
+сама вырастает до **64 сегментов**, и вероятность коллизии 8 потоков
+падает до ≈ 35 % (валидация — `DRAFT.md` §15). Полные таблицы §3–9
+сняты **до** этого изменения (фиксированные 16 сегментов).
 
 ### 2.2. JDK — `java.util.concurrent.ConcurrentHashMap`
 
@@ -265,9 +290,12 @@ heatmap своя цветовая шкала** — кросс-сравнение
 
 **Tier 1 (структурные, не баги):**
 - OWN записи не скейлятся за 8 потоков и проседают на 16 — потолок
-  16 сегментных локов (§2.1). Лечится повышением `segmentCount`.
+  16 сегментных локов (§2.1). **Адресовано** динамическим fair-resize
+  числа сегментов (§2.1, валидация `DRAFT.md` §15: +67 % к write @ 8 t на
+  light-прогоне). Полные таблицы §3–9 — до этого изменения.
 - OWN mixed-регрессия 15–19 % на 16 потоках — те же write-локи как точка
-  сериализации, к которой выстраиваются читатели.
+  сериализации, к которой выстраиваются читатели; тот же resize должен
+  её ослабить (нужен полный ре-ран для подтверждения).
 
 **Tier 2 (методологические артефакты):**
 - `readOwnSingle_thr01` (68 M) < `read_thr01` OWN (92 M) — dual-фикстура
@@ -298,6 +326,12 @@ Quick-mode (`jcstress { mode = "quick" }` в `build.gradle.kts`).
 | `MergeAtomicityStressTest` | два `merge(+1)` дают `2`, никогда `1` (linearizable) |
 | `ResizeStressTest` | `get` сквозь `resizeLocked` видит старый **или** новый bucket-массив, никогда не наполовину достроенный (опирается на `@Volatile var buckets`) |
 
+`jcstress` бьёт мелкими мапами и не доводит их до глобального resize
+числа сегментов; этот путь (concurrent `put`/`get` сквозь рост раскладки)
+покрыт JUnit-тестами `concurrentPutsAcrossSegmentGrowth` и
+`growthPreservesEntriesUnderConcurrentReads` (низкий watermark форсирует
+многократный рост под нагрузкой).
+
 Это даёт уверенность, что throughput-числа сняты с **корректной**
 структуры, а не с гонкой, которая «случайно быстрая».
 
@@ -316,7 +350,17 @@ python3 scripts/plot_results.py                 # графики → results/ful
 Лёгкий smoke (подмножество, 1 форк, итерации по 1 с):
 
 ```bash
-./gradlew jmh --no-daemon -Pjmh.light=true -Pjmh.heap=1536m
+./gradlew jmh --no-daemon -Pjmh.light=true -Pjmh.heap=2g
+```
+
+A/B динамического resize сегментов (env-кнобом, та же сборка). Без env —
+рост включён; `LAB_OWN_MAX_SEGMENTS=16` фиксирует 16 сегментов (baseline):
+
+```bash
+LAB_OWN_MAX_SEGMENTS=16 ./gradlew jmh --no-daemon -Pjmh.light=true \
+  -Pjmh.heap=2g -Pjmh.resultsFile=results/light/jmh-noresize.json   # OFF
+./gradlew jmh --no-daemon -Pjmh.light=true \
+  -Pjmh.heap=2g -Pjmh.resultsFile=results/light/jmh-resize.json     # ON
 ```
 
 Кастомный путь к JSON для plot-скрипта:
