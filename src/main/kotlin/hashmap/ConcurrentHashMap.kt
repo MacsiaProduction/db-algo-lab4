@@ -58,6 +58,8 @@ class ConcurrentHashMap<K : Any, V : Any>(
         return sum
     }
 
+    //todo resize
+
     fun clear() {
         for (s in segments) {
             s.lock.lock()
