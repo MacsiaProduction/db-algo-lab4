@@ -138,7 +138,7 @@ class ConcurrentHashMap<K : Any, V : Any>(
         fun putLocked(spreadHash: Int, key: K, value: V): V? {
             val tab = buckets
             val idx = indexFor(spreadHash)
-            var head = tab.get(idx)
+            val head = tab.get(idx)
             var p: Node<K, V>? = head
             while (p != null) {
                 if (p.key == key) {
@@ -165,7 +165,7 @@ class ConcurrentHashMap<K : Any, V : Any>(
         ): V {
             val tab = buckets
             val idx = indexFor(spreadHash)
-            var head = tab.get(idx)
+            val head = tab.get(idx)
             var p: Node<K, V>? = head
             while (p != null) {
                 if (p.key == key) {

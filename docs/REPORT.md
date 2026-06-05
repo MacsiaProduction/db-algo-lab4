@@ -67,6 +67,10 @@ OWN масштабируется только в ×2.3 до 8 потоков и 
 `ReentrantLock`, [`write_thr16_JDK`](../results/flame/write_thr16_JDK.html)
 — на CAS-retry.
 
+| OWN — `ReentrantLock` contention | JDK — CAS retry |
+|:---:|:---:|
+| ![Flamegraph OWN 16 threads](img/full/flame_write_thr16_OWN.png) | ![Flamegraph JDK 16 threads](img/full/flame_write_thr16_JDK.png) |
+
 ## 5. Смешанная нагрузка — `MixedBenchmark` @ `rs = 0.8`
 
 | threads | OWN | JDK | SYNC |
