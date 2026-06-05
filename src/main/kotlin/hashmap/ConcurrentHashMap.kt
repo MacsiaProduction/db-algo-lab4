@@ -4,16 +4,13 @@ import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.atomic.AtomicReferenceArray
 import java.util.concurrent.locks.ReentrantLock
 
-/**
- * Thread-safe closed-addressing hash table: per-segment [ReentrantLock], separate chaining.
- * Reads ([get]) traverse bucket heads and [Node.next] without locks; visibility via [@Volatile].
- */
+/** Потокобезопасная хеш-таблица: лок на сегмент, separate chaining, чтения без локов (видимость через @Volatile). */
 class ConcurrentHashMap<K : Any, V : Any>(
     segmentCount: Int = 16,
     initialBucketsPerSegment: Int = 16,
 ) {
     private val segmentMask: Int
-    /** log2(segmentCount); used to shift hash for bucket indexing */
+    /** log2(segmentCount): сдвиг хеша для индексации бакета. */
     private val segmentBitCount: Int
     private val segments: Array<Segment<K, V>>
 
@@ -76,10 +73,7 @@ class ConcurrentHashMap<K : Any, V : Any>(
         }
     }
 
-    /**
-     * Atomically updates the value for [key] using [merger]; returns the new value.
-     * If the key was absent, it is set to [value] and [value] is returned.
-     */
+    /** Атомарно объединяет значение по [key] через [merger]; для отсутствующего ключа кладёт [value]. */
     fun merge(key: K, value: V, merger: (V, V) -> V): V {
         val h = spread(key.hashCode())
         val seg = segmentFor(h)
@@ -91,10 +85,7 @@ class ConcurrentHashMap<K : Any, V : Any>(
         }
     }
 
-    /**
-     * Weakly consistent iterator: pairs observed while each segment was locked once
-     * (heads + chains at that time); does not reflect concurrent updates.
-     */
+    /** Слабо-согласованный итератор: снимок пар на момент захвата лока каждого сегмента. */
     fun iterator(): Iterator<Pair<K, V>> {
         val out = ArrayList<Pair<K, V>>()
         for (seg in segments) {
@@ -130,7 +121,7 @@ class ConcurrentHashMap<K : Any, V : Any>(
     ) {
         val lock = ReentrantLock()
         val entryCount = AtomicLong(0)
-        /** Volatile so lock-free [get] sees array swaps after [resizeLocked]. */
+        /** Volatile: lock-free [get] видит замену массива после [resizeLocked]. */
         @Volatile private var buckets: AtomicReferenceArray<Node<K, V>?> = AtomicReferenceArray(initialCap)
         private var threshold: Int = (initialCap * LOAD_FACTOR).toInt()
 

@@ -1,9 +1,6 @@
 package hashmap
 
-/**
- * Non-thread-safe baseline: thin wrapper over [java.util.HashMap] with the same API surface as
- * [ConcurrentHashMap] for benchmarks (single-threaded only). Not related to `sun.misc.Unsafe`.
- */
+/** Однопоточный baseline: обёртка над [java.util.HashMap] с API как у [ConcurrentHashMap]. Не связан с sun.misc.Unsafe. */
 class PlainHashMap<K : Any, V : Any>(initialCapacity: Int = 16) {
     private val map = HashMap<K, V>(initialCapacity)
 

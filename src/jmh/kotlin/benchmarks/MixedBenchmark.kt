@@ -27,7 +27,7 @@ open class MixedBenchmark {
     @Param("OWN", "JDK", "SYNC")
     lateinit var impl: String
 
-    /** Read fraction in [0,1] */
+    /** Доля чтений в [0,1]. */
     @Param("0.8", "0.5", "0.2")
     lateinit var readShareStr: String
 

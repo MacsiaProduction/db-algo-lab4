@@ -9,7 +9,7 @@ import org.openjdk.jcstress.annotations.Outcome;
 import org.openjdk.jcstress.annotations.State;
 import org.openjdk.jcstress.infra.results.I_Result;
 
-/** Two actors put different values for the same key; one value must win. */
+/** Два актора кладут разные значения по одному ключу: должно победить одно. */
 @JCStressTest
 @Outcome.Outcomes({
         @Outcome(id = "10", expect = Expect.ACCEPTABLE, desc = "first writer wins"),

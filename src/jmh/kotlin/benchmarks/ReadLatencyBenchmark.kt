@@ -15,7 +15,7 @@ import org.openjdk.jmh.infra.Blackhole
 import java.util.concurrent.ThreadLocalRandom
 import java.util.concurrent.TimeUnit
 
-/** Sample-time read latency (percentiles appear in JMH JSON for plotting). */
+/** Латентность чтения в sample-режиме (перцентили попадают в JSON для графиков). */
 @BenchmarkMode(Mode.SampleTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 3, time = 500, timeUnit = TimeUnit.MILLISECONDS)

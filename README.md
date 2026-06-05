@@ -8,7 +8,7 @@ Baseline: [`hashmap.PlainHashMap`](src/main/kotlin/hashmap/PlainHashMap.kt) — 
 
 ```bash
 ./gradlew test
-./gradlew jcstress   # concurrency stress (tough mode; can be slow)
+./gradlew jcstress   # concurrency stress (quick mode; see build.gradle.kts)
 ```
 
 Uses **Gradle 9.5+** (wrapper) so the build runs on **JDK 22+** (tested on **JDK 26**). Bytecode targets **Java 21** (`release` / Kotlin `jvmTarget`).
@@ -102,6 +102,7 @@ Tests live under [`src/jcstress/java/stress/`](src/jcstress/java/stress/):
 - `PutGetStressTest` — put + concurrent get; arbiter observes `0` or `1`.
 - `ConcurrentPutStressTest` — two `put`s; final value `10` or `20`.
 - `MergeAtomicityStressTest` — two `merge(+1)`; expect `2` (forbidden: lost update).
+- `ResizeStressTest` — concurrent `put`/`get` across `resizeLocked`; `get` never sees a corrupted value.
 
 ## Project layout
 

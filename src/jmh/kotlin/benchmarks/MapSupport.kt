@@ -6,10 +6,10 @@ import java.util.Collections
 import java.util.concurrent.ConcurrentHashMap as JdkCHM
 import java.util.concurrent.ThreadLocalRandom
 
-/** [UNSAFE] = single-threaded [PlainHashMap] (java.util.HashMap wrapper), not sun.misc.Unsafe. */
+/** [UNSAFE] = однопоточный [PlainHashMap] (обёртка java.util.HashMap), не sun.misc.Unsafe. */
 enum class ImplKind { OWN, JDK, SYNC, UNSAFE }
 
-/** Minimal map surface used by JMH workloads (Int keys, Long values). */
+/** Минимальный интерфейс мапа для JMH-нагрузок (Int-ключи, Long-значения). */
 interface IntLongMap {
     fun putM(k: Int, v: Long): Long?
     fun getM(k: Int): Long?

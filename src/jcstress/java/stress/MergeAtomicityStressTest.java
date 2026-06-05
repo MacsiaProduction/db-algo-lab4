@@ -9,7 +9,7 @@ import org.openjdk.jcstress.annotations.Outcome;
 import org.openjdk.jcstress.annotations.State;
 import org.openjdk.jcstress.infra.results.I_Result;
 
-/** Two actors each merge +1; linearizable result should be 2. */
+/** Два актора делают merge(+1): линеаризуемый результат — 2. */
 @JCStressTest
 @Outcome.Outcomes({
         @Outcome(id = "2", expect = Expect.ACCEPTABLE, desc = "both increments applied"),

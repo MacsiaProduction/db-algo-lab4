@@ -9,9 +9,7 @@ import org.openjdk.jcstress.annotations.Outcome;
 import org.openjdk.jcstress.annotations.State;
 import org.openjdk.jcstress.infra.results.I_Result;
 
-/**
- * One thread puts (k,1), another reads k. Final map state should be absent or present with 1.
- */
+/** Один поток кладёт (k,1), другой читает k: итог — ключ отсутствует или равен 1. */
 @JCStressTest
 @Outcome.Outcomes({
         @Outcome(id = "0", expect = Expect.ACCEPTABLE, desc = "key absent (put not yet visible to arbiter)"),

@@ -10,10 +10,7 @@ import org.openjdk.jcstress.annotations.Outcome;
 import org.openjdk.jcstress.annotations.State;
 import org.openjdk.jcstress.infra.results.I_Result;
 
-/**
- * One segment, one bucket per segment: inserts quickly trigger {@code resizeLocked}.
- * Concurrent {@code get} must never observe a wrong value for a key (stale chain / wrong bucket).
- */
+/** Один сегмент с одним бакетом: вставки быстро триггерят resizeLocked; concurrent get не должен вернуть неверное значение. */
 @JCStressTest
 @Outcome.Outcomes({
         @Outcome(id = "0", expect = Expect.ACCEPTABLE, desc = "no wrong value observed"),
@@ -22,7 +19,7 @@ import org.openjdk.jcstress.infra.results.I_Result;
 @State
 public class ResizeStressTest {
 
-    /** Forces resize on almost every new key. */
+    /** Форсирует resize почти на каждом новом ключе. */
     private final ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>(1, 1);
 
     private final AtomicInteger nextPut = new AtomicInteger(0);
