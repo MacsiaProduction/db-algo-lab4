@@ -11,7 +11,7 @@ Baseline: [`hashmap.PlainHashMap`](src/main/kotlin/hashmap/PlainHashMap.kt) — 
 ./gradlew jcstress   # concurrency stress (quick mode; see build.gradle.kts)
 ```
 
-Uses **Gradle 9.5+** (wrapper) so the build runs on **JDK 22+** (tested on **JDK 26**). Bytecode targets **Java 21** (`release` / Kotlin `jvmTarget`).
+Uses **Gradle 9.5+** (wrapper). Compilation and tests run on a pinned **JDK 21 toolchain** (`kotlin { jvmToolchain(21) }`), so the build no longer depends on the JDK that launches Gradle — Gradle auto-detects an installed JDK 21 (e.g. via SDKMAN). Bytecode targets **Java 21** (`release` / Kotlin `jvmTarget`).
 
 ## JMH benchmarks
 

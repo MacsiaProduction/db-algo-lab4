@@ -18,6 +18,9 @@ repositories {
 }
 
 kotlin {
+    // Pin the compile/test toolchain to JDK 21 so the build doesn't silently use the launcher JDK
+    // (a JDK < 21 fails at test time with "class file version 65.0"); bytecode still targets Java 21.
+    jvmToolchain(21)
     sourceSets {
         named("jmh") {
             kotlin.srcDir("src/jmh/kotlin")
