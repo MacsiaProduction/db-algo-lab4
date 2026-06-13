@@ -1,0 +1,30 @@
+============================================================
+  meta_run_all (benchmarks only — no flame): Сб 13 июн 2026 14:37:03 MSK
+  Lab4: /home/macsia/Projects/git/db-algo-lab4
+  Lab3: /home/macsia/Projects/git/db-algo-lab3
+  Log:  /home/macsia/Projects/git/db-algo-lab4/results/logs/meta_run_all-20260613-143703.log
+  Flames later: ./meta_run_flame.sh
+============================================================
+
+==================== Lab4: ./gradlew test ====================
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not determine the dependencies of task ':compileKotlin'.
+> Cannot find a Java installation on your machine (Linux 7.0.11-1-cachyos amd64) matching: {languageVersion=21, vendor=any vendor, implementation=vendor-specific, nativeImageCapable=false}. Toolchain download repositories have not been configured.
+
+* Try:
+> Learn more about toolchain auto-detection and auto-provisioning at https://docs.gradle.org/9.5.0/userguide/toolchains.html#sec:auto_detection.
+> Learn more about toolchain repositories at https://docs.gradle.org/9.5.0/userguide/toolchains.html#sub:download_repositories.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 8s

@@ -1,0 +1,189 @@
+============================================================
+  meta_run_flame (profiler-only): Сб 13 июн 2026 20:09:01 MSK
+  Lab4: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+  Lab3: /home/macsia/Projects/git/db-algo-lab3/docs/img/full/hnsw_build_flame.svg
+  Log:  /home/macsia/Projects/git/db-algo-lab4/results/logs/meta_run_flame-20260613-200901.log
+============================================================
+
+==================== Lab4: ./scripts/record_flame.sh =========
+WARN: kernel.perf_event_paranoid=2 (recommend 1 for CPU stacks):
+  sudo sysctl kernel.perf_event_paranoid=1 kernel.kptr_restrict=0
+==> async-profiler: /opt/async-profiler
+==> output dir: /home/macsia/Projects/git/db-algo-lab4/results/flame (isolated from results/full/)
+==> JMH + agent — WriteBenchmark.write_thr16 impl=OWN
+    html: /home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_OWN.html
+    json: /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_OWN.json (profile run only; not used for report plots)
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator UP-TO-DATE
+> Task :jmhCompileGeneratedClasses UP-TO-DATE
+> Task :jmhJar UP-TO-DATE
+
+> Task :jmh
+# JMH version: 1.37
+# VM version: JDK 21.0.11, OpenJDK 64-Bit Server VM, 21.0.11+10
+# VM invoker: /usr/lib/jvm/java-21-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC -agentpath:/opt/async-profiler/lib/libasyncProfiler.so=start,event=cpu,file=/home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_OWN.html -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 3 iterations, 15 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.WriteBenchmark.write_thr16
+# Parameters: (impl = OWN, rangeStr = 1048576)
+
+# Run progress: 0.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+[WARN] Install JVM debug symbols to improve profile accuracy
+Profiling started
+# Warmup Iteration   1: 57441754.191 ops/s
+Iteration   1: 58328187.825 ops/s
+Iteration   2: 58767649.772 ops/s
+Iteration   3: 58905734.206 ops/s
+
+
+Result "benchmarks.WriteBenchmark.write_thr16":
+  58667190.601 ±(99.9%) 5502198.758 ops/s [Average]
+  (min, avg, max) = (58328187.825, 58667190.601, 58905734.206), stdev = 301594.080
+  CI (99.9%): [53164991.843, 64169389.359] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:50
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                   (impl)  (rangeStr)   Mode  Cnt         Score         Error  Units
+WriteBenchmark.write_thr16     OWN     1048576  thrpt    3  58667190.601 ± 5502198.758  ops/s
+
+Benchmark result is saved to /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_OWN.json
+
+[Incubating] Problems report is available at: file:///home/macsia/Projects/git/db-algo-lab4/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 53s
+8 actionable tasks: 1 executed, 7 up-to-date
+==> JMH + agent — WriteBenchmark.write_thr16 impl=JDK
+    html: /home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_JDK.html
+    json: /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_JDK.json (profile run only; not used for report plots)
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/macsia/.gradle/wrapper/dists/gradle-9.5.0-bin/bvnork1r7n8i6kp5cnkibsc9q/gradle-9.5.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator UP-TO-DATE
+> Task :jmhCompileGeneratedClasses UP-TO-DATE
+> Task :jmhJar UP-TO-DATE
+
+> Task :jmh
+# JMH version: 1.37
+# VM version: JDK 21.0.11, OpenJDK 64-Bit Server VM, 21.0.11+10
+# VM invoker: /usr/lib/jvm/java-21-openjdk/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/macsia/Projects/git/db-algo-lab4/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant -Djmh.ignoreLock=true -Xmx24g -Xms256m -XX:+UseG1GC -agentpath:/opt/async-profiler/lib/libasyncProfiler.so=start,event=cpu,file=/home/macsia/Projects/git/db-algo-lab4/results/flame/write_thr16_JDK.html -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 3 iterations, 15 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: benchmarks.WriteBenchmark.write_thr16
+# Parameters: (impl = JDK, rangeStr = 1048576)
+
+# Run progress: 0.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+[WARN] Install JVM debug symbols to improve profile accuracy
+Profiling started
+# Warmup Iteration   1: 101425622.206 ops/s
+Iteration   1: 103385635.375 ops/s
+Iteration   2: 103854308.191 ops/s
+Iteration   3: 104039559.629 ops/s
+
+
+Result "benchmarks.WriteBenchmark.write_thr16":
+  103759834.398 ±(99.9%) 6148925.022 ops/s [Average]
+  (min, avg, max) = (103385635.375, 103759834.398, 104039559.629), stdev = 337043.329
+  CI (99.9%): [97610909.376, 109908759.420] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:50
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                   (impl)  (rangeStr)   Mode  Cnt          Score         Error  Units
+WriteBenchmark.write_thr16     JDK     1048576  thrpt    3  103759834.398 ± 6148925.022  ops/s
+
+Benchmark result is saved to /home/macsia/Projects/git/db-algo-lab4/results/flame/jmh-write_thr16_JDK.json
+
+[Incubating] Problems report is available at: file:///home/macsia/Projects/git/db-algo-lab4/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 53s
+8 actionable tasks: 1 executed, 7 up-to-date
+==> Lab4 flame artifacts: /home/macsia/Projects/git/db-algo-lab4/results/flame/
+
+SKIP_LAB3=1 — done
